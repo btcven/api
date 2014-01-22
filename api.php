@@ -18,31 +18,31 @@ require_once('config.php');
 // USD and EUR Bitcoin prices
 $CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice.json') or die("can't get rates");
 $CoinDesk = json_decode($CoinDesk);
-$usdbtc = $CoinDesk->{'bpi'}->{'USD'}->{'rate_float'};
-$eurbtc = $CoinDesk->{'bpi'}->{'EUR'}->{'rate_float'};
+$usd_btc = $CoinDesk->{'bpi'}->{'USD'}->{'rate_float'};
+$eur_btc = $CoinDesk->{'bpi'}->{'EUR'}->{'rate_float'};
 
 // VEF Bitcoin price (gov's regulated price)
 $CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/vef.json') or die("can't get rates");
 $CoinDesk = json_decode($CoinDesk);
-$vefbtc = $CoinDesk->{'bpi'}->{'VEF'}->{'rate_float'};
+$vef_btc = $CoinDesk->{'bpi'}->{'VEF'}->{'rate_float'};
 
 // ARS Bitcoin price (gov's regulated price)
 $CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/ars.json') or die("can't get rates");
 $CoinDesk = json_decode($CoinDesk);
-$arsbtc = $CoinDesk->{'bpi'}->{'ARS'}->{'rate_float'};
+$ars_btc = $CoinDesk->{'bpi'}->{'ARS'}->{'rate_float'};
 
-$eurusd_x = $eurbtc / $usdbtc;
-$vefusd_x = $vefbtc / $usdbtc;
-$arsusd_x = $arsbtc / $usdbtc;
+$eur_usd = $eur_btc / $usd_btc;
+$vef_usd = $vef_btc / $usd_btc;
+$ars_usd = $ars_btc / $usd_btc;
 
 // Black Market USD prices in VEF (XVE) and ARS (XAR), EUR price in VEF (XVE)
 require_once('paralelos.php');
 
 // Bitcoin prices
-$usd = $usdbtc;
-$eur = $usdbtc * $eurusd_x;
-$vef = $vefpar * $usdbtc;
-$ars = $arsblue * $usdbtc;
+$usd = $usd_btc;
+$eur = $usd_btc * $eur_usd;
+$vef = $xve_usd * $usd_btc;
+$ars = $xar_usd * $usd_btc;
 
 $btcven_export = array (
 	
@@ -53,15 +53,15 @@ $btcven_export = array (
 			'VEF'=>$vef,
 			'ARS'=>$ars
 		),
-	
-	'tasas_cambio'=>
-		array( 
-			'EUR_USD'=>$eurusd_x,
-			'VEF_USD'=>$vefusd_x,
-			'ARS_USD'=>$arsusd_x,
-			'XVE_USD'=>$vefpar,
-			'XVE_EUR'=>$eurpar,
-			'XAR_USD'=>$arsblue
+
+	'exchange_rates'=>
+		array(
+			'EUR_USD'=>$eur_usd,
+			'VEF_USD'=>$vef_usd,
+			'ARS_USD'=>$ars_usd,
+			'XVE_USD'=>$xve_usd,
+			'XVE_EUR'=>$xve_eur,
+			'XAR_USD'=>$xar_usd
 		)
 	);
 	
@@ -89,7 +89,7 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
 	echo '<br />Tasas de Cambio<br />';
 		
-	foreach ($btcven_json['tasas_cambio'] as $key => $value) {
+	foreach ($btcven_json['exchange_rates'] as $key => $value) {
 		
 		echo $key.': '.ReplaceDot($value).'<br />';
 		

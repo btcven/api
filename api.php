@@ -56,12 +56,12 @@ $btcven_export = array (
 	
 	'tasas_cambio'=>
 		array( 
-			'EUR'=>$eurusd_x,
-			'VEF'=>$vefusd_x,
-			'ARS'=>$arsusd_x,
-			'VEF_USDparalelo'=>$vefpar,
-			'VEF_EURparalelo'=>$eurpar,
-			'ARS_USDazul'=>$arsblue
+			'EUR_USD'=>$eurusd_x,
+			'VEF_USD'=>$vefusd_x,
+			'ARS_USD'=>$arsusd_x,
+			'XVE_USD'=>$vefpar,
+			'XVE_EUR'=>$eurpar,
+			'XAR_USD'=>$arsblue
 		)
 	);
 	

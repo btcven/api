@@ -12,30 +12,39 @@ Twitter: @btcven
 Email: contacto@bitcoinvenezuela.com
 */
 
-//require_once('config.php');
+// config file with api keys and secrets
+require_once('config.php');
 
-$json = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice.json') or die("can't get rates");
-$jdec = json_decode($json);
-$usdbtc = $jdec->{'bpi'}->{'USD'}->{'rate_float'};
+// USD and EUR Bitcoin prices
+$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice.json') or die("can't get rates");
+$CoinDesk = json_decode($CoinDesk);
+$usdbtc = $CoinDesk->{'bpi'}->{'USD'}->{'rate_float'};
+$eurbtc = $CoinDesk->{'bpi'}->{'EUR'}->{'rate_float'};
 
-include('conversion.php');
+// VEF Bitcoin price (gov's regulated price)
+$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/vef.json') or die("can't get rates");
+$CoinDesk = json_decode($CoinDesk);
+$vefbtc = $CoinDesk->{'bpi'}->{'VEF'}->{'rate_float'};
 
-$eurusd_x = $json2['EUR'];
-$vefusd_x = $json2['VEF'];
-$arsusd_x = $json2['ARS'];
+// ARS Bitcoin price (gov's regulated price)
+$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/ars.json') or die("can't get rates");
+$CoinDesk = json_decode($CoinDesk);
+$arsbtc = $CoinDesk->{'bpi'}->{'ARS'}->{'rate_float'};
 
-$vefpar = $json2['VEF_USDparalelo'];
-$eurpar = $json2['VEF_EURparalelo'];
-$arsblue = $json2['ARS_USDazul'];
+$eurusd_x = $eurbtc / $usdbtc;
+$vefusd_x = $vefbtc / $usdbtc;
+$arsusd_x = $arsbtc / $usdbtc;
 
+// Black Market USD prices in VEF (XVE) and ARS (XAR), EUR price in VEF (XVE)
+require_once('paralelos.php');
+
+// Bitcoin prices
 $usd = $usdbtc;
 $eur = $usdbtc * $eurusd_x;
 $vef = $vefpar * $usdbtc;
 $ars = $arsblue * $usdbtc;
 
-if (!isset($_GET['html']) || $_GET['html'] == '') {
-	
-	$btcven_export = array (
+$btcven_export = array (
 	
 	'BTC'=>
 		array(
@@ -56,16 +65,35 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 		)
 	);
 	
-	$btcven_export = json_encode($btcven_export);
+$btcven_json = json_encode($btcven_export);
+
+if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
-	echo $btcven_export;
+	echo $btcven_json;
 	
-} else {
+} elseif (isset($_GET['html']) && $_GET['html'] == 'yes') {
 	
 	function ReplaceDot($number ='') {
 		return number_format($number, 2, ',', '.');
 	}
 	
+	$btcven_json = json_decode($btcven_json, true);
+	
+	echo '<br />1 BTC<br />';
+	
+	foreach ($btcven_json['BTC'] as $key => $value) {
+		
+		echo $key.': '.ReplaceDot($value).'<br />';
+		
+	}
+	
+	echo '<br />Tasas de Cambio<br />';
+		
+	foreach ($btcven_json['tasas_cambio'] as $key => $value) {
+		
+		echo $key.': '.ReplaceDot($value).'<br />';
+		
+	}
 	
 }
 

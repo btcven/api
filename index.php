@@ -12,7 +12,7 @@ Twitter: @btcven
 Email: contacto@bitcoinvenezuela.com
 */
 
-// config file with api keys and secrets
+// Config file with api keys and secrets
 require_once('config.php');
 
 // USD and EUR Bitcoin prices

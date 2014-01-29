@@ -2,8 +2,6 @@
 //error_reporting(E_ALL); 
 ini_set( 'display_errors','0');
 
-//header('content-type: application/json; charset=utf-8');
-
 if(function_exists('curl_exec')) {
 
 	require_once('twitter-api-php/TwitterAPIExchange.php');

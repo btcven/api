@@ -69,6 +69,8 @@ $btcven_json = json_encode($btcven_export);
 
 if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
+	header('content-type: application/json; charset=utf-8');
+	
 	echo $btcven_json;
 	
 } elseif (isset($_GET['html']) && $_GET['html'] == 'yes') {

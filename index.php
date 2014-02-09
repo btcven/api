@@ -44,6 +44,15 @@ $eur = $usd_btc * $eur_usd;
 $vef = $xve_usd * $usd_btc;
 $ars = $xar_usd * $usd_btc;
 
+// LocalBitcoins prices for coupons
+$LocalBitcoins_24h_avg_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_24h_avg_usd") or die("can't get rates");
+/*
+$LocalBitcoins_buy_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_buy_usd") or die("can't get rates");
+$LocalBitcoins_sell_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_sell_usd") or die("can't get rates");
+*/
+
+$LocalBitcoins_coupons = $LocalBitcoins_24h_avg_usd * $xve_usd;
+
 $btcven_export = array (
 	
 	'BTC'=>
@@ -62,10 +71,17 @@ $btcven_export = array (
 			'XVE_USD'=>$xve_usd,
 			'XVE_EUR'=>$xve_eur,
 			'XAR_USD'=>$xar_usd
-		)
+		),
+		
+	'LocalBitcoins_coupons'=>
+			array(
+				'USD'=>$LocalBitcoins_24h_avg_usd,
+				'XVE'=>$LocalBitcoins_coupons
+			),
 	);
 	
 $btcven_json = json_encode($btcven_export);
+
 
 if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
@@ -95,6 +111,17 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 		
 		echo $key.': '.ReplaceDot($value).'<br />';
 		
+	}
+	
+	if (isset($_GET['coupons']) && $_GET['coupons'] == 'yes') {
+		
+		echo '<br />Cupones de LocalBitcoins<br />';
+		
+		foreach ($btcven_json['LocalBitcoins_coupons'] as $key => $value) {
+				
+		echo $key.': '.ReplaceDot($value).'<br />';
+		
+		}
 	}
 	
 }

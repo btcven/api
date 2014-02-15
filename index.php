@@ -122,11 +122,14 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 		
 	}
 	
-	echo '<br />Tasas de Cambio<br />';
-		
-	foreach ($btcven_json['exchange_rates'] as $key => $value) {
-		
-		echo $key.': '.ReplaceDot($value).'<br />';
+	if (isset($_GET['rates']) && $_GET['rates'] == 'yes') {
+	
+		echo '<br />Tasas de Cambio<br />';
+			
+		foreach ($btcven_json['exchange_rates'] as $key => $value) {
+			
+			echo $key.': '.ReplaceDot($value).'<br />';
+		}
 		
 	}
 	

@@ -28,13 +28,9 @@ if (!isset($xve_usd) || $xve_usd == '') {
 	// Notify by email that DolarToday prices are not working
 	include('notify_mail.php');
 }
+	
+header('content-type: application/json; charset=utf-8');
 
-if (isset($_GET['json']) && $_GET['json'] == 'yes') {
-	
-	header('content-type: application/json; charset=utf-8');
-	
-	echo json_encode($jsonDolarToday);
-	
-}
+echo json_encode($jsonDolarToday);
 
 ?>

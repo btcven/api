@@ -1,12 +1,12 @@
-Bitcoin Venezuela API and web services
+Bitcoin Venezuela API
 ===
 
 Bitcoin Venezuela API shows the current price of Bitcoin in these currencies:
 
-- USD (from CoinDesk)
-- EUR (from CoinDesk)
-- VEF (current USD black market price XVE converted to USD/XBT from CoinDesk)
-- ARS (current USD black market price XAR converted to USD/XBT from CoinDesk)
+- USD
+- EUR
+- VEF
+- ARS
 
 Exchange rates:
 
@@ -20,7 +20,7 @@ Exchange rates:
 Current LocalBitcoins' coupons price:
 
 - USD
-- VEF (current USD black market price XVE converted to USD/XBT from LocalBitcoins' coupons price)
+- VEF
 
 ===
 

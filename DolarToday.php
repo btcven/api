@@ -29,8 +29,12 @@ if (!isset($xve_usd) || $xve_usd == '') {
 	include('notify_mail.php');
 }
 	
-header('content-type: application/json; charset=utf-8');
+if (isset($_GET['json']) && $_GET['json'] == 'yes') {
 
-echo json_encode($jsonDolarToday);
+	header('content-type: application/json; charset=utf-8');
+ 
+	echo json_encode($jsonDolarToday);
+  	
+}
 
 ?>

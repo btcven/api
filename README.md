@@ -35,7 +35,7 @@ Show exchange rates: &rates=yes
 Show LocalBitcoins' coupons price: &coupons=yes
 
 
-Data taken from DolarToday.com can be accessed here http://api.bitcoinvenezuela.com/DolarToday.php
+Data taken from DolarToday.com can be accessed here http://api.bitcoinvenezuela.com/DolarToday.php?json=yes
 
 
 

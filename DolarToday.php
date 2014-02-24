@@ -3,15 +3,33 @@
 ini_set( 'display_errors','0');
 
 $DolarToday = file_get_contents('http://dolartoday.com');
-
-list($oficialprecio, $DolarToday) = explode("<script type=\"text/javascript\" src=\"", $DolarToday);
 	
-	$DolarToday = (strlen($DolarToday) > 51) ? substr($DolarToday,0,51) : $DolarToday;
+if ($DolarToday == '') {
+	
+	$antibloqueo = json_decode(file_get_contents('DolarToday.json'),true) or die("can't get _antibloqueo");
+	
+	$antibloqueo = $antibloqueo['_antibloqueo']['mobile'];
+	
+	$DolarToday = file_get_contents($antibloqueo);
+	
+}
 
-$DolarToday = 'https:'.$DolarToday;
+list($item1, $DolarToday) = explode("<script type=\"text/javascript\" src=\"", $DolarToday);
 
+list($DolarToday, $item2) = explode("rate.js", $DolarToday);
 
-$jsonDolarToday = json_decode(file_get_contents($DolarToday, NULL, NULL, 17),true);
+$DolarToday = 'https:'.$DolarToday.'rate.js';
+
+$DolarToday = file_get_contents($DolarToday, NULL, NULL, 17);
+
+if ($DolarToday != '') {
+
+	$fp = fopen('DolarToday.json', 'w');
+	fwrite($fp, $DolarToday);
+	fclose($fp);
+}
+
+$jsonDolarToday = json_decode($DolarToday,true);
 	
 $xve_usd = $jsonDolarToday['USD']['efectivo'];
 

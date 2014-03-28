@@ -3,7 +3,8 @@
 ini_set( 'display_errors','0');
 
 $DolarToday = file_get_contents('http://dolartoday.com');
-	
+
+// Check if dolartoday.com is working or use _antibloqueo URL instead.
 if ($DolarToday == '') {
 	
 	$antibloqueo = json_decode(file_get_contents('DolarToday.json'),true) or die("can't get _antibloqueo");
@@ -11,7 +12,6 @@ if ($DolarToday == '') {
 	$antibloqueo = $antibloqueo['_antibloqueo']['mobile'];
 	
 	$DolarToday = file_get_contents($antibloqueo);
-	
 }
 
 list($item1, $DolarToday) = explode("<script type=\"text/javascript\" src=\"", $DolarToday);
@@ -22,6 +22,7 @@ $DolarToday = 'https:'.$DolarToday.'rate.js';
 
 $DolarToday = file_get_contents($DolarToday, NULL, NULL, 17);
 
+// Only overwrite json file if not empty
 if ($DolarToday != '') {
 
 	$fp = fopen('DolarToday.json', 'w');
@@ -50,6 +51,7 @@ if (!isset($xve_usd) || $xve_usd == '') {
 if (isset($_GET['json']) && $_GET['json'] == 'yes') {
 
 	header('content-type: application/json; charset=utf-8');
+	header('Access-Control-Allow-Origin: *');
  
 	echo json_encode($jsonDolarToday);
   	

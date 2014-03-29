@@ -34,12 +34,18 @@ $connection = mysqli_connect($db_server, $db_user, $db_password, $db_database);
 				
 				$historical_XVE[$date] = $row['vefbitcoin'];
 			}
+			
+			if (isset($row['arsbitcoin']) && $row['arsbitcoin'] != "" && $row['arsbitcoin'] != 0){
+							
+				$historical_XAR[$date] = $row['arsbitcoin'];
+			}
 		}	
 	}
 
 mysqli_close($connection);
 
 $historical['VEF_BTC'] = $historical_XVE;
+$historical['ARS_BTC'] = $historical_XAR;
 
 echo json_encode($historical);
 

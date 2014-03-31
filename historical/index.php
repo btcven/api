@@ -32,12 +32,12 @@ $connection = mysqli_connect($db_server, $db_user, $db_password, $db_database);
 			
 			if (isset($row['vefbitcoin']) && $row['vefbitcoin'] != "" && $row['vefbitcoin'] != 0){
 				
-				$historical_XVE[$date] = $row['vefbitcoin'];
+				$historical_XVE[$date] = str_replace(',', '', $row['vefbitcoin']);
 			}
 			
 			if (isset($row['arsbitcoin']) && $row['arsbitcoin'] != "" && $row['arsbitcoin'] != 0){
 							
-				$historical_XAR[$date] = $row['arsbitcoin'];
+				$historical_XAR[$date] = $usd = str_replace(',', '', $row['arsbitcoin']);
 			}
 		}	
 	}

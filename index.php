@@ -109,15 +109,19 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
 } if (isset($_GET['currency']) && $_GET['currency'] != '' && isset($_GET['amount']) && $_GET['amount'] != '') {
 	
+	$set_currency = strtoupper($_GET['currency']);
+	$set_to = strtoupper($_GET['to']);
+	
+	
 	$btcven_json = json_decode($btcven_json, true);
 	
 	$set_amount = str_replace(',', '.', $_GET['amount']);
 	
-	if ($_GET['currency'] == 'btc') {
+	if ($set_currency == 'BTC') {
 	
 		if (isset($_GET['to']) && $_GET['to'] != '') {
 		
-			$price_in_currency = $set_amount * $btcven_json['BTC'][strtoupper($_GET['to'])];
+			$price_in_currency = $set_amount * $btcven_json['BTC'][$set_to];
 			
 		} else {
 		
@@ -126,7 +130,7 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 		
 	} else {
 	
-		$price_in_currency = $set_amount / $btcven_json['BTC'][strtoupper($_GET['currency'])];
+		$price_in_currency = $set_amount / $btcven_json['BTC'][$set_currency];
 		
 	}
 	

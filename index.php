@@ -107,6 +107,31 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
 	echo $btcven_json;
 	
+} if (isset($_GET['currency']) && $_GET['currency'] != '' && isset($_GET['amount']) && $_GET['amount'] != '') {
+	
+	$btcven_json = json_decode($btcven_json, true);
+	
+	$set_amount = str_replace(',', '.', $_GET['amount']);
+	
+	if ($_GET['currency'] == 'btc') {
+	
+		if (isset($_GET['to']) && $_GET['to'] != '') {
+		
+			$price_in_currency = $set_amount * $btcven_json['BTC'][strtoupper($_GET['to'])];
+			
+		} else {
+		
+			$price_in_currency = $set_amount * $btcven_json['BTC']['VEF'];
+		}
+		
+	} else {
+	
+		$price_in_currency = $set_amount / $btcven_json['BTC'][strtoupper($_GET['currency'])];
+		
+	}
+	
+	echo sprintf('%.8f', $price_in_currency);
+	
 } elseif (isset($_GET['html']) && $_GET['html'] == 'yes') {
 	
 	function ReplaceDot($number ='') {

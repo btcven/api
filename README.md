@@ -1,7 +1,7 @@
 Bitcoin Venezuela API
 ===
 
-Bitcoin Venezuela API shows the current price of Bitcoin in these currencies: *USD*, *EUR*, *VEF*, *ARS*
+Bitcoin Venezuela API shows the current price of Bitcoin in these currencies: **USD**, **EUR**, **VEF**, **ARS**
 
 Exchange rates:
 
@@ -12,7 +12,7 @@ Exchange rates:
 - XVE/EUR
 - XAR/USD
 
-Current LocalBitcoins' coupons price: *USD*, *VEF*
+Current LocalBitcoins' coupons price: **USD**, **VEF**
 
 ===
 
@@ -36,11 +36,11 @@ http://api.bitcoinvenezuela.com/?html=no&currency=_currency_&amount=_amount_ [&t
 
 ?html=no _*_
 
-&currency _*_: ***BTC***, ***USD***, ***EUR***, ***VEF***, ***ARS***. Gives the amount of bitcoins for this currency.
+&currency= _*_: **BTC**, **USD**, **EUR**, **VEF**, **ARS**. Gives the amount of bitcoins for this currency.
 
-&amount _*_: amount of the given currency.
+&amount= _*_: amount of the given currency.
 
-&to : set this field to calculate BTC to this _currency_. If not set the default currency used is VEF.
+&to= : set this field to calculate BTC to this _currency_. If not set the default currency used is VEF.
 
 _* required_
 

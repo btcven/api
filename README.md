@@ -14,7 +14,6 @@ Exchange rates:
 
 Current LocalBitcoins' coupons price: **USD**, **VEF**
 
-===
 
 # Options
 
@@ -28,7 +27,6 @@ It could also be embedded as an iframe with this options:
 
 - Show LocalBitcoins' coupons price: &coupons=yes
 
-===
 
 # Calculator
 
@@ -44,7 +42,6 @@ http://api.bitcoinvenezuela.com/?html=no&currency=_currency_&amount=_amount_ [&t
 
 _* required_
 
-===
 
 # DolarToday
 

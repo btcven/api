@@ -30,7 +30,7 @@ It could also be embedded as an iframe with this options:
 
 # Calculator
 
-http://api.bitcoinvenezuela.com/?html=no&currency=_currency_&amount=_amount_ [&to=_currency_]
+[http://api.bitcoinvenezuela.com/](http://api.bitcoinvenezuela.com/)?html=no&currency=_currency_&amount=_amount_ [&to=_currency_]
 
 ?html=no _*_
 

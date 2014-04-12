@@ -59,6 +59,19 @@ if(time()-900 > $time) {
 	
 	$LocalBitcoins_coupons = $LocalBitcoins_24h_avg_usd * $xve_usd;
 	
+	// BTC-e BTC_LTC price
+	$btce_ltc_btc = file_get_contents("https://btc-e.com/api/2/ltc_btc/ticker") or die("can't get rates");
+	$btce_ltc_btc = json_decode($btce_ltc_btc, true);
+	$btce_ltc_btc = $btce_ltc_btc['ticker']['last'];
+	
+	$usd_ltc = $usd * $btce_ltc_btc;
+	$eur_ltc = $eur * $btce_ltc_btc;
+	$vef_ltc = $vef * $btce_ltc_btc;
+	$ars_ltc = $ars * $btce_ltc_btc;
+	
+	$ltc_btc = 1/$btce_ltc_btc;
+	$ltc_btc = substr($ltc_btc, 0, ((strpos($ltc_btc, '.')+1)+8));
+	
 	$btcven_export = array (
 	
 		'time'=>
@@ -71,7 +84,17 @@ if(time()-900 > $time) {
 				'USD'=>$usd,
 				'EUR'=>$eur,
 				'VEF'=>$vef,
-				'ARS'=>$ars
+				'ARS'=>$ars,
+				'LTC'=>$ltc_btc
+			),
+		
+		'LTC'=>
+			array(
+				'USD'=>$usd_ltc,
+				'EUR'=>$eur_ltc,
+				'VEF'=>$vef_ltc,
+				'ARS'=>$ars_ltc,
+				'BTC'=>$btce_ltc_btc
 			),
 	
 		'exchange_rates'=>
@@ -148,8 +171,28 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
 	foreach ($btcven_json['BTC'] as $key => $value) {
 		
-		echo $key.': '.ReplaceDot($value).'<br />';
+		if ($key != 'LTC') {
+			echo $key.': '.ReplaceDot($value).'<br />';
+		} else {
+			echo $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
+		}
 		
+	}
+	
+	if (isset($_GET['ltc']) && $_GET['ltc'] == 'yes') {
+	
+		echo '<br />1 LTC<br />';
+			
+		foreach ($btcven_json['LTC'] as $key => $value) {
+			
+			if ($key != 'BTC') {
+				echo $key.': '.ReplaceDot($value).'<br />';
+			} else {
+				echo $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
+			}
+			
+		}
+	
 	}
 	
 	if (isset($_GET['rates']) && $_GET['rates'] == 'yes') {

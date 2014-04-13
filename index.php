@@ -15,27 +15,27 @@ Email: contacto@bitcoinvenezuela.com
 // Config file with api keys and secrets
 require_once('config.php');
 
-$btcven_json = file_get_contents('btcven.json') or die("can't get rates");
+$btcven_json = file_get_contents('btcven.json');
+$btcven_json_decode = json_decode($btcven_json, true);
 
-$time = json_decode($btcven_json, true);
-$time = $time['time']['timestamp'];
+$time = $btcven_json_decode['time']['timestamp'];
 
 if(time()-900 > $time) {
 	// USD and EUR Bitcoin prices
-	$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice.json') or die("can't get rates");
-	$CoinDesk = json_decode($CoinDesk);
-	$usd_btc = $CoinDesk->{'bpi'}->{'USD'}->{'rate_float'};
-	$eur_btc = $CoinDesk->{'bpi'}->{'EUR'}->{'rate_float'};
+	$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice.json');
+	$CoinDesk = json_decode($CoinDesk, true);
+	$usd_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['USD']['rate_float'] : $btcven_json_decode['BTC']['USD']);
+	$eur_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['EUR']['rate_float'] : $btcven_json_decode['BTC']['EUR']);
 	
 	// VEF Bitcoin price (gov's regulated price)
-	$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/vef.json') or die("can't get rates");
-	$CoinDesk = json_decode($CoinDesk);
-	$vef_btc = $CoinDesk->{'bpi'}->{'VEF'}->{'rate_float'};
+	$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/vef.json');
+	$CoinDesk = json_decode($CoinDesk, true);
+	$vef_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['VEF']['rate_float'] : $btcven_json_decode['BTC']['VEF']);
 	
 	// ARS Bitcoin price (gov's regulated price)
-	$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/ars.json') or die("can't get rates");
-	$CoinDesk = json_decode($CoinDesk);
-	$ars_btc = $CoinDesk->{'bpi'}->{'ARS'}->{'rate_float'};
+	$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/ars.json');
+	$CoinDesk = json_decode($CoinDesk, true);
+	$ars_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['ARS']['rate_float'] : $btcven_json_decode['BTC']['ARS']);
 	
 	$eur_usd = $eur_btc / $usd_btc;
 	$vef_usd = $vef_btc / $usd_btc;
@@ -51,18 +51,19 @@ if(time()-900 > $time) {
 	$ars = $xar_usd * $usd_btc;
 	
 	// LocalBitcoins prices for coupons
-	$LocalBitcoins_24h_avg_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_24h_avg_usd") or die("can't get rates");
+	$LocalBitcoins_24h_avg_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_24h_avg_usd");
+	$LocalBitcoins_24h_avg_usd = ($LocalBitcoins_24h_avg_usd != "" ? $LocalBitcoins_24h_avg_usd : $btcven_json_decode['LocalBitcoins_coupons']['USD']);
 	/*
-	$LocalBitcoins_buy_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_buy_usd") or die("can't get rates");
-	$LocalBitcoins_sell_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_sell_usd") or die("can't get rates");
+	$LocalBitcoins_buy_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_buy_usd");
+	$LocalBitcoins_sell_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_sell_usd");
 	*/
 	
 	$LocalBitcoins_coupons = $LocalBitcoins_24h_avg_usd * $xve_usd;
 	
 	// BTC-e BTC_LTC price
-	$btce_ltc_btc = file_get_contents("https://btc-e.com/api/2/ltc_btc/ticker") or die("can't get rates");
+	$btce_ltc_btc = file_get_contents("https://btc-e.com/api/2/ltc_btc/ticker");
 	$btce_ltc_btc = json_decode($btce_ltc_btc, true);
-	$btce_ltc_btc = $btce_ltc_btc['ticker']['last'];
+	$btce_ltc_btc = ($btce_ltc_btc != "" ? $btce_ltc_btc['ticker']['last'] : $btcven_json_decode['LTC']['BTC']);
 	
 	$usd_ltc = $usd * $btce_ltc_btc;
 	$eur_ltc = $eur * $btce_ltc_btc;

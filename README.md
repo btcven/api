@@ -5,12 +5,12 @@ Bitcoin Venezuela API shows the current price of Bitcoin in these currencies: **
 
 Exchange rates:
 
-- EUR/USD
-- VEF/USD
-- ARS/USD
-- XVE/USD
-- XVE/EUR
-- XAR/USD
+- EUR _per_ USD
+- VEF _per_ USD
+- ARS _per_ USD
+- XVE _per_ USD
+- XVE _per_ EUR
+- XAR _per_ USD
 
 Current LocalBitcoins' coupons price: **USD**, **VEF**
 
@@ -21,7 +21,9 @@ You can use the data of this API making requests to http://api.bitcoinvenezuela.
 
 It could also be embedded as an iframe with this options:
 
-- Show as HTML: http://api.bitcoinvenezuela.com?html=yes [&rates=yes] [&coupons=yes]
+- Show as HTML: http://api.bitcoinvenezuela.com?html=yes [&ltc=yes] [&rates=yes] [&coupons=yes]
+
+- Show Litecoin prices: &ltc=yes
 
 - Show exchange rates: &rates=yes
 
@@ -41,6 +43,25 @@ It could also be embedded as an iframe with this options:
 &to= : set this field to calculate BTC to this _currency_. If not set the default currency used is VEF.
 
 _* required_
+
+
+# Historical
+
+Show the recorded prices for Bitcoin and Litecoin in USD, EUR, VEF and ARS.
+
+[http://api.bitcoinvenezuela.com/historical/](http://api.bitcoinvenezuela.com/historical/) [?pair=_pair_]
+
+Historical data can be filtered to a specific pair of currencies:
+
+- USDBTC
+- EURBTC
+- VEFBTC
+- ARSBTC
+
+- USDLTC
+- EURLTC
+- VEFLTC
+- ARSLTC
 
 
 # DolarToday

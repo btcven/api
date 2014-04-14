@@ -53,15 +53,15 @@ Show the recorded prices for Bitcoin and Litecoin in USD, EUR, VEF and ARS.
 
 Historical data can be filtered to a specific pair of currencies:
 
-- USDBTC
-- EURBTC
-- VEFBTC
-- ARSBTC
+* USDBTC
+* EURBTC
+* VEFBTC
+* ARSBTC
 
-- USDLTC
-- EURLTC
-- VEFLTC
-- ARSLTC
+* USDLTC
+* EURLTC
+* VEFLTC
+* ARSLTC
 
 
 # DolarToday

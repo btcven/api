@@ -49,9 +49,14 @@ _* required_
 
 Show the recorded prices for Bitcoin and Litecoin in USD, EUR, VEF and ARS.
 
-[http://api.bitcoinvenezuela.com/historical/](http://api.bitcoinvenezuela.com/historical/) [?pair=_pair_]
+[http://api.bitcoinvenezuela.com/historical/](http://api.bitcoinvenezuela.com/historical/) [?coin=_coin_] [?pair=_pair_]
 
-Historical data can be filtered to a specific pair of currencies:
+Historical data can be filtered by coin:
+
+- BTC
+- LTC
+
+Or to a specific pair of currencies:
 
 * USDBTC
 * EURBTC

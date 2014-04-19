@@ -21,57 +21,14 @@ $btcven_json_decode = json_decode($btcven_json, true);
 $time = $btcven_json_decode['time']['timestamp'];
 
 if(time()-900 > $time) {
-	// USD and EUR Bitcoin prices
-	$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice.json');
-	$CoinDesk = json_decode($CoinDesk, true);
-	$usd_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['USD']['rate_float'] : $btcven_json_decode['BTC']['USD']);
-	$eur_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['EUR']['rate_float'] : $btcven_json_decode['BTC']['EUR']);
-	
-	// VEF Bitcoin price (gov's regulated price)
-	$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/vef.json');
-	$CoinDesk = json_decode($CoinDesk, true);
-	$vef_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['VEF']['rate_float'] : $btcven_json_decode['BTC']['VEF']);
-	
-	// ARS Bitcoin price (gov's regulated price)
-	$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/ars.json');
-	$CoinDesk = json_decode($CoinDesk, true);
-	$ars_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['ARS']['rate_float'] : $btcven_json_decode['BTC']['ARS']);
-	
-	$eur_usd = $eur_btc / $usd_btc;
-	$vef_usd = $vef_btc / $usd_btc;
-	$ars_usd = $ars_btc / $usd_btc;
-	
-	// Black Market USD prices in VEF (XVE) and ARS (XAR), EUR price in VEF (XVE)
-	require_once('paralelos.php');
-	
-	// Bitcoin prices
-	$usd = $usd_btc;
-	$eur = $usd_btc * $eur_usd;
-	$vef = $xve_usd * $usd_btc;
-	$ars = $xar_usd * $usd_btc;
-	
-	// LocalBitcoins prices for coupons
-	$LocalBitcoins_24h_avg_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_24h_avg_usd");
-	$LocalBitcoins_24h_avg_usd = ($LocalBitcoins_24h_avg_usd != "" ? $LocalBitcoins_24h_avg_usd : $btcven_json_decode['LocalBitcoins_coupons']['USD']);
-	/*
-	$LocalBitcoins_buy_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_buy_usd");
-	$LocalBitcoins_sell_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_sell_usd");
-	*/
-	
-	$LocalBitcoins_coupons = $LocalBitcoins_24h_avg_usd * $xve_usd;
+	// Bitcoin
+	include_once('coin/bitcoin.php');
 	
 	// BTC-e BTC_LTC price
-	$btce_ltc_btc = file_get_contents("https://btc-e.com/api/2/ltc_btc/ticker");
-	$btce_ltc_btc = json_decode($btce_ltc_btc, true);
-	$btce_ltc_btc = ($btce_ltc_btc != "" ? $btce_ltc_btc['ticker']['last'] : $btcven_json_decode['LTC']['BTC']);
+	include_once('coin/litecoin.php');
 	
-	$usd_ltc = $usd * $btce_ltc_btc;
-	$eur_ltc = $eur * $btce_ltc_btc;
-	$vef_ltc = $vef * $btce_ltc_btc;
-	$ars_ltc = $ars * $btce_ltc_btc;
-	
-	$ltc_btc = 1/$btce_ltc_btc;
-	$ltc_btc = substr($ltc_btc, 0, ((strpos($ltc_btc, '.')+1)+8));
+	// MasterXchange BTC_MSC price
+	include_once('coin/mastercoin.php');
 	
 	$btcven_export = array (
 	
@@ -86,7 +43,8 @@ if(time()-900 > $time) {
 				'EUR'=>$eur,
 				'VEF'=>$vef,
 				'ARS'=>$ars,
-				'LTC'=>$ltc_btc
+				'LTC'=>$ltc_btc,
+				'MSC'=>$msc_btc
 			),
 		
 		'LTC'=>
@@ -95,7 +53,18 @@ if(time()-900 > $time) {
 				'EUR'=>$eur_ltc,
 				'VEF'=>$vef_ltc,
 				'ARS'=>$ars_ltc,
-				'BTC'=>$btce_ltc_btc
+				'BTC'=>$exchange_ltc_btc,
+				'MSC'=>1/($exchange_msc_btc * $ltc_btc)
+			),
+			
+		'MSC'=>
+			array(
+				'USD'=>$usd_msc,
+				'EUR'=>$eur_msc,
+				'VEF'=>$vef_msc,
+				'ARS'=>$ars_msc,
+				'BTC'=>$exchange_msc_btc,
+				'LTC'=>$exchange_msc_btc * $ltc_btc
 			),
 	
 		'exchange_rates'=>
@@ -172,10 +141,11 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
 	foreach ($btcven_json['BTC'] as $key => $value) {
 		
-		if ($key != 'LTC') {
+		if ($key != 'LTC' && $key != 'MSC') {
 			echo $key.': '.ReplaceDot($value).'<br />';
 		} else {
-			echo $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
+			$echo = $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
+			echo str_replace('.', ',', $echo);
 		}
 		
 	}
@@ -186,10 +156,28 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 			
 		foreach ($btcven_json['LTC'] as $key => $value) {
 			
-			if ($key != 'BTC') {
+			if ($key != 'BTC' && $key != 'MSC') {
 				echo $key.': '.ReplaceDot($value).'<br />';
 			} else {
-				echo $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
+				$echo = $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
+				echo str_replace('.', ',', $echo);
+			}
+			
+		}
+	
+	}
+	
+	if (isset($_GET['msc']) && $_GET['msc'] == 'yes') {
+		
+		echo '<br />1 MSC<br />';
+			
+		foreach ($btcven_json['MSC'] as $key => $value) {
+			
+			if ($key != 'BTC' && $key != 'LTC') {
+				echo $key.': '.ReplaceDot($value).'<br />';
+			} else {
+				$echo = $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
+				echo str_replace('.', ',', $echo);
 			}
 			
 		}

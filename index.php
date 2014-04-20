@@ -30,6 +30,12 @@ if(time()-900 > $time) {
 	// MasterXchange BTC_MSC price
 	include_once('coin/mastercoin.php');
 	
+	$btc_ltc = $exchange_ltc_btc;
+	$msc_ltc = 1/($exchange_msc_btc * $ltc_btc);
+	
+	$btc_msc = $exchange_msc_btc;
+	$ltc_msc = $exchange_msc_btc * $ltc_btc;
+	
 	$btcven_export = array (
 	
 		'time'=>
@@ -53,8 +59,8 @@ if(time()-900 > $time) {
 				'EUR'=>$eur_ltc,
 				'VEF'=>$vef_ltc,
 				'ARS'=>$ars_ltc,
-				'BTC'=>$exchange_ltc_btc,
-				'MSC'=>1/($exchange_msc_btc * $ltc_btc)
+				'BTC'=>$btc_ltc,
+				'MSC'=>$msc_ltc
 			),
 			
 		'MSC'=>
@@ -63,8 +69,8 @@ if(time()-900 > $time) {
 				'EUR'=>$eur_msc,
 				'VEF'=>$vef_msc,
 				'ARS'=>$ars_msc,
-				'BTC'=>$exchange_msc_btc,
-				'LTC'=>$exchange_msc_btc * $ltc_btc
+				'BTC'=>$btc_msc,
+				'LTC'=>$ltc_msc
 			),
 	
 		'exchange_rates'=>

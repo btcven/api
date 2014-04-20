@@ -140,6 +140,77 @@ $connection = mysqli_connect($db_server, $db_user, $db_password, $db_database);
 						$historical['ARS_LTC'] = $historical_XAR_LTC;
 					}
 				}
+				if (isset($row['litecoin']) && $row['litecoin'] != "" && $row['litecoin'] != 0){
+					
+					if ($set_pair != "BTCLTC" && $set_pair != "") {
+																		
+					} else {		
+						$historical_BTC_LTC[$date] = str_replace(',', '', $row['litecoin']);
+	
+						$historical['BTC_LTC'] = $historical_BTC_LTC;
+					}
+				}
+			} // if coin
+			
+			// Mastercoin
+			if ($set_coin != "MSC" && $set_coin != "") {
+			
+			} else {
+			
+				if (isset($row['usdmastercoin']) && $row['usdmastercoin'] != "" && $row['usdmastercoin'] != 0){
+								
+					if ($set_pair != "USDMSC" && $set_pair != "") {
+																		
+					} else {		
+						$historical_USD_MSC[$date] = str_replace(',', '', $row['usdmastercoin']);
+						
+						$historical['USD_MSC'] = $historical_USD_MSC;
+					}
+				}
+							
+				if (isset($row['eurmastercoin']) && $row['eurmastercoin'] != "" && $row['eurmastercoin'] != 0){
+								
+					if ($set_pair != "EURMSC" && $set_pair != "") {
+																		
+					} else {		
+						$historical_EUR_MSC[$date] = str_replace(',', '', $row['eurmastercoin']);
+						
+						$historical['EUR_MSC'] = $historical_EUR_MSC;
+					}
+				}
+				
+				if (isset($row['vefmastercoin']) && $row['vefmastercoin'] != "" && $row['vefmastercoin'] != 0){
+					
+					if ($set_pair != "VEFMSC" && $set_pair != "") {
+														
+					} else {
+						$historical_XVE_MSC[$date] = str_replace(',', '', $row['vefmastercoin']);
+	
+						$historical['VEF_MSC'] = $historical_XVE_MSC;
+					}
+				}
+				
+				if (isset($row['arsmastercoin']) && $row['arsmastercoin'] != "" && $row['arsmastercoin'] != 0){
+					
+					if ($set_pair != "ARSMSC" && $set_pair != "") {
+																		
+					} else {		
+						$historical_XAR_MSC[$date] = str_replace(',', '', $row['arsmastercoin']);
+	
+						$historical['ARS_MSC'] = $historical_XAR_MSC;
+					}
+				}
+				
+				if (isset($row['mastercoin']) && $row['mastercoin'] != "" && $row['mastercoin'] != 0){
+					
+					if ($set_pair != "BTCMSC" && $set_pair != "") {
+																		
+					} else {		
+						$historical_BTC_MSC[$date] = str_replace(',', '', $row['mastercoin']);
+	
+						$historical['BTC_MSC'] = $historical_BTC_MSC;
+					}
+				}
 			} // if coin
 		} // while
 	}

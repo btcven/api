@@ -1,7 +1,7 @@
 <?php
 
 // MasterXchange BTC_MSC price
-$exchange_msc_btc_json = file_get_contents("https://masterxchange.com/api/trades.php");
+$exchange_msc_btc_json = file_get_contents("https://masterxchange.com/api/v2/trades.php?currency=msc");
 $exchange_msc_btc = json_decode($exchange_msc_btc_json, true);
 
 if ($exchange_msc_btc_json != "") {

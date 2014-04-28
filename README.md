@@ -58,15 +58,22 @@ Historical data can be filtered by coin:
 
 Or to a specific pair of currencies:
 
-* USDBTC
-* EURBTC
-* VEFBTC
-* ARSBTC
+* BTCUSD
+* BTCEUR
+* BTCVEF
+* BTCARS
 
-* USDLTC
-* EURLTC
-* VEFLTC
-* ARSLTC
+* LTCUSD
+* LTCEUR
+* LTCVEF
+* LTCARS
+* LTCBTC
+
+* MSCUSD
+* MSCEUR
+* MSCVEF
+* MSCARS
+* MSCBTC
 
 
 # DolarToday

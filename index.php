@@ -87,7 +87,36 @@ if(time()-900 > $time) {
 				array(
 					'USD'=>$LocalBitcoins_24h_avg_usd,
 					'XVE'=>$LocalBitcoins_coupons
-				)
+				),
+				
+		'variations'=>
+					array(
+					'BTC'=>array(
+							($btcven_json_decode['BTC']['USD'] < $usd ? 0 : 1),
+							($btcven_json_decode['BTC']['EUR'] < $eur ? 0 : 1),
+							($btcven_json_decode['BTC']['VEF'] < $vef ? 0 : 1),
+							($btcven_json_decode['BTC']['ARS'] < $ars ? 0 : 1),
+							($btcven_json_decode['BTC']['LTC'] < $ltc_btc ? 0 : 1),
+							($btcven_json_decode['BTC']['MSC'] < $msc_btc ? 0 : 1)
+								),
+					'LTC'=>array(
+							($btcven_json_decode['LTC']['USD'] < $usd ? 0 : 1),
+							($btcven_json_decode['LTC']['EUR'] < $eur ? 0 : 1),
+							($btcven_json_decode['LTC']['VEF'] < $vef ? 0 : 1),
+							($btcven_json_decode['LTC']['ARS'] < $ars ? 0 : 1),
+							($btcven_json_decode['LTC']['BTC'] < $btc_ltc ? 0 : 1),
+							($btcven_json_decode['LTC']['MSC'] < $msc_ltc ? 0 : 1)
+								),
+					'MSC'=>array(
+							($btcven_json_decode['MSC']['USD'] < $usd ? 0 : 1),
+							($btcven_json_decode['MSC']['EUR'] < $eur ? 0 : 1),
+							($btcven_json_decode['MSC']['VEF'] < $vef ? 0 : 1),
+							($btcven_json_decode['MSC']['ARS'] < $ars ? 0 : 1),
+							($btcven_json_decode['MSC']['BTC'] < $btc_msc ? 0 : 1),
+							($btcven_json_decode['MSC']['MSC'] < $ltc_msc ? 0 : 1)
+								)
+					)
+		
 		);
 		
 	$btcven_json = json_encode($btcven_export);
@@ -106,7 +135,7 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
 	echo $btcven_json;
 	
-} if (isset($_GET['currency']) && $_GET['currency'] != '' && isset($_GET['amount']) && $_GET['amount'] != '') {
+} if (isset($_GET['html']) && $_GET['html'] == "no" && isset($_GET['currency']) && $_GET['currency'] != '' && isset($_GET['amount']) && $_GET['amount'] != '' ) {
 	
 	$set_currency = strtoupper($_GET['currency']);
 	$set_to = strtoupper($_GET['to']);
@@ -143,7 +172,11 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
 	$btcven_json = json_decode($btcven_json, true);
 	
-	echo '<br />1 BTC<br />';
+	echo '<head>
+			<meta name=format-detection content="telephone=no">
+			<meta http-equiv=x-rim-auto-match content=none>
+		  </head>'.
+		  '<br />1 BTC<br />';
 	
 	foreach ($btcven_json['BTC'] as $key => $value) {
 		

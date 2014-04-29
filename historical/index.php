@@ -23,12 +23,18 @@ $connection = mysqli_connect($db_server, $db_user, $db_password, $db_database);
 		echo 'error in database';
 	
 	} else {
+		//-------------------
+		$LTCBTC = json_decode(file_get_contents('../app/LTCBTC/LTCBTC_historical.json'),true);
+		$historical_BTC_LTC = $LTCBTC['BTC_LTC'];
+		//-------------------
 		
 		mysqli_data_seek($result, 0);
 		
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 			
-			list($date, $item1) = explode(" ", $row['date']);
+			//list($date, $item1) = explode(" ", $row['date']);
+			
+			$date = $row['date'];
 			
 			// Filters
 			if (isset($_GET['coin']) && $_GET['coin'] != "") {

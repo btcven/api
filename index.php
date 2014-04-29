@@ -125,7 +125,8 @@ if(time()-900 > $time) {
 	$fp = fopen('btcven.json', 'w');
 	fwrite($fp, $btcven_json);
 	fclose($fp);
-
+	
+	include_once('app/LTCBTC/index.php');
 }
 
 if (!isset($_GET['html']) || $_GET['html'] == '') {

@@ -66,7 +66,3 @@ Data taken from DolarToday.com can be accessed here http://api.bitcoinvenezuela.
 # Donations
 
 bitcoin:1VenCBSjJWDi6PDgEDppZzXsNWHiwitzT
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/btcven/api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

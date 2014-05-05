@@ -21,9 +21,11 @@ You can use the data of this API making requests to http://api.bitcoinvenezuela.
 
 It could also be embedded as an iframe with this options:
 
-- Show as HTML: http://api.bitcoinvenezuela.com?html=yes [&ltc=yes] [&rates=yes] [&coupons=yes]
+- Show as HTML: http://api.bitcoinvenezuela.com?html=yes [&ltc=yes] [&msc=yes] [&rates=yes] [&coupons=yes]
 
 - Show Litecoin prices: &ltc=yes
+
+- Show Mastercoin prices: &msc=yes
 
 - Show exchange rates: &rates=yes
 
@@ -51,35 +53,19 @@ Show the recorded prices for Bitcoin and Litecoin in USD, EUR, VEF and ARS.
 
 [http://api.bitcoinvenezuela.com/historical/](http://api.bitcoinvenezuela.com/historical/) [?coin=_coin_] [?pair=_pair_]
 
-Historical data can be filtered by coin:
+Historical data can be filtered by coin: **BTC**, **LTC**, **MSC**
 
-- BTC
-- LTC
-
-Or to a specific pair of currencies:
-
-* BTCUSD
-* BTCEUR
-* BTCVEF
-* BTCARS
-
-* LTCUSD
-* LTCEUR
-* LTCVEF
-* LTCARS
-* LTCBTC
-
-* MSCUSD
-* MSCEUR
-* MSCVEF
-* MSCARS
-* MSCBTC
+Or to a specific pair of currencies: **BTCUSD**, **BTCEUR**, **BTCVEF**, **BTCARS**, **LTCUSD**, **LTCEUR**, **LTCVEF**, **LTCARS**, **LTCBTC**, **MSCUSD**, **MSCEUR**, **MSCVEF**, **MSCARS**, **MSCBTC**
 
 
 # DolarToday
 
 Data taken from DolarToday.com can be accessed here http://api.bitcoinvenezuela.com/DolarToday.php?json=yes
 
+
+# Donations
+
+[bitcoin:1VenCBSjJWDi6PDgEDppZzXsNWHiwitzT](bitcoin:1VenCBSjJWDi6PDgEDppZzXsNWHiwitzT)
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/btcven/api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

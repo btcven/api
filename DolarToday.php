@@ -12,6 +12,8 @@ if ($DolarToday == '') {
 	$antibloqueo = $antibloqueo['_antibloqueo']['mobile'];
 	
 	$DolarToday = file_get_contents($antibloqueo);
+	
+	$DolarToday = $DolarToday."/calculadora/";
 }
 
 list($item1, $DolarToday) = explode("<script type=\"text/javascript\" src=\"", $DolarToday);

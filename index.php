@@ -125,6 +125,10 @@ if(time()-900 > $time) {
 	$fp = fopen('btcven.json', 'w');
 	fwrite($fp, $btcven_json);
 	fclose($fp);
+	
+	include_once('IGNORE/old_api.php');
+	
+	include_once('IGNORE/historical_db.php');
 }
 
 if (!isset($_GET['html']) || $_GET['html'] == '') {
@@ -174,20 +178,64 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 	echo '<head>
 			<meta name=format-detection content="telephone=no">
 			<meta http-equiv=x-rim-auto-match content=none>
-		  </head>'.
-		  '<br />1 BTC<br />';
+		  </head>';
 	
-	foreach ($btcven_json['BTC'] as $key => $value) {
+	if (!isset($_GET['look'])) {
+	
+		echo '1 BTC<br />';
 		
-		if ($key != 'LTC' && $key != 'MSC') {
-			echo $key.': '.ReplaceDot($value).'<br />';
-		} else {
-			$echo = $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
-			echo str_replace('.', ',', $echo);
+		foreach ($btcven_json['BTC'] as $key => $value) {
+			
+			if ($key != 'LTC' && $key != 'MSC') {
+				echo $key.': '.ReplaceDot($value).'<br />';
+			} else {
+				$echo = $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
+				echo str_replace('.', ',', $echo);
+			}
+			
 		}
-		
-	}
 	
+	} elseif (isset($_GET['look']) && $_GET['look'] == 'clean') {
+	
+		echo '<style>
+				body {
+					font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+					letter-spacing:1pt;
+					'.(isset($_GET['align']) == 'right' ? 'text-align:right;' : '').'
+					line-height:1.5em; /* 18px */
+				}
+				small { font-size:.625rem; }
+				abbr[title]{ border-bottom:1px dotted; cursor:help }
+			  </style>';
+		
+		foreach ($btcven_json['BTC'] as $key => $value) {
+				
+			if ($key != 'LTC' && $key != 'MSC') {
+			
+				switch ($key) {
+					case 'USD':
+						echo '<strong>'.ReplaceDot($value).'</strong>'.' <abbr title="D&oacute;lar Estadounidense &#36;"><small>'.$key.'</small></abbr><br />';
+						break;
+					case 'EUR':
+						echo '<strong>'.ReplaceDot($value).'</strong>'.' <abbr title="Euro &euro;"><small>'.$key.'</small></abbr><br />';
+						break;
+					case 'VEF':
+						echo '<strong>'.ReplaceDot($value).'</strong>'.' <abbr title="Bol&iacute;var Venezolano Bs Fuerte BsF"><small>'.$key.'</small></abbr><br />';
+						break;
+					case 'ARS':
+						echo '<strong>'.ReplaceDot($value).'</strong>'.' <abbr title="Peso Argentino &#36;"><small>'.$key.'</small></abbr><br />';
+						break;						
+											
+				}
+				
+			} /*else {
+				$echo = $key.': '.substr($value, 0, ((strpos($value, '.')+1)+8)).'<br />';
+				echo str_replace('.', ',', $echo);
+			}*/
+			
+		}
+	}
+		
 	if (isset($_GET['ltc']) && $_GET['ltc'] == 'yes') {
 	
 		echo '<br />1 LTC<br />';

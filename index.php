@@ -159,6 +159,56 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 			$price_in_currency = $set_amount * $btcven_json['BTC']['VEF'];
 		}
 		
+	}
+	
+	// Litecoin
+	
+	elseif ($set_currency == 'LTC') {
+	
+		if (isset($_GET['to']) && $_GET['to'] != '') {
+		
+			$price_in_currency = $set_amount * $btcven_json['LTC'][$set_to];
+			
+		} else {
+		
+			$price_in_currency = $set_amount * $btcven_json['LTC']['VEF'];
+		}
+		
+	}
+	
+	// Mastercoin
+	
+	elseif ($set_currency == 'MSC') {
+		
+		if (isset($_GET['to']) && $_GET['to'] != '') {
+		
+			$price_in_currency = $set_amount * $btcven_json['MSC'][$set_to];
+			
+		} else {
+		
+			$price_in_currency = $set_amount * $btcven_json['MSC']['VEF'];
+		}
+		
+	}
+	
+	// Fiat to Crypto
+	
+	elseif ($set_currency != 'BTC' || $set_currency != 'LTC' || $set_currency != 'MSC') {
+	
+		if ($set_currency == 'USD' || $set_currency == 'EUR' || $set_currency == 'VEF' || $set_currency == 'ARS') {
+			
+			if (isset($_GET['to']) && $_GET['to'] != '') {
+			
+				$price_in_currency = $set_amount / $btcven_json[$set_to][$set_currency];
+		
+			} else {
+			
+				$price_in_currency = $set_amount / $btcven_json['BTC'][$set_currency];
+			
+			}
+		
+		}
+		
 	} else {
 	
 		$price_in_currency = $set_amount / $btcven_json['BTC'][$set_currency];

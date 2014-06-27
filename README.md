@@ -42,7 +42,7 @@ It could also be embedded as an iframe with this options:
 
 &amount= _*_: amount of the given currency.
 
-&to= : set this field to calculate BTC to this _currency_. If not set the default currency used is VEF.
+&to= : set this field to calculate BTC, LTC or MSC to this _currency_. If not set the default currency used is VEF.
 
 _* required_
 

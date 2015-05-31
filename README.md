@@ -14,6 +14,9 @@ Exchange rates:
 
 Current LocalBitcoins' coupons price: **USD**, **VEF**
 
+# Output
+##### Print example of api.bitcoinvenezuela.com
+https://gist.github.com/alexsalas/e07228f4dcab25a7835c
 
 # Options
 

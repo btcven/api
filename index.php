@@ -114,16 +114,16 @@ if(time()-900 > $time) {
 							($btcven_json_decode['BTC']['EUR'] < $eur ? 0 : 1),
 							($btcven_json_decode['BTC']['VEF'] < $vef ? 0 : 1),
 							($btcven_json_decode['BTC']['ARS'] < $ars ? 0 : 1),
-							($btcven_json_decode['BTC']['LTC'] < $ltc_btc ? 0 : 1),
-							($btcven_json_decode['BTC']['MSC'] < $msc_btc ? 0 : 1)
+							($btcven_json_decode['BTC']['LTC'] < $ltc_btc ? 0 : 1)/*,
+							($btcven_json_decode['BTC']['MSC'] < $msc_btc ? 0 : 1)*/
 								),
 					'LTC'=>array(
 							($btcven_json_decode['LTC']['USD'] < $usd ? 0 : 1),
 							($btcven_json_decode['LTC']['EUR'] < $eur ? 0 : 1),
 							($btcven_json_decode['LTC']['VEF'] < $vef ? 0 : 1),
 							($btcven_json_decode['LTC']['ARS'] < $ars ? 0 : 1),
-							($btcven_json_decode['LTC']['BTC'] < $btc_ltc ? 0 : 1),
-							($btcven_json_decode['LTC']['MSC'] < $msc_ltc ? 0 : 1)
+							($btcven_json_decode['LTC']['BTC'] < $btc_ltc ? 0 : 1)/*,
+							($btcven_json_decode['LTC']['MSC'] < $msc_ltc ? 0 : 1)*/
 								)/*,
 					'MSC'=>array(
 							($btcven_json_decode['MSC']['USD'] < $usd ? 0 : 1),

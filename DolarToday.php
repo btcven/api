@@ -20,7 +20,7 @@ list($item1, $DolarToday) = explode("<script type=\"text/javascript\" src=\"", $
 
 list($DolarToday, $item2) = explode("rate.js", $DolarToday);
 
-$DolarToday = 'https:'.$DolarToday.'rate.js';
+$DolarToday = $DolarToday.'rate.js';
 
 $DolarToday = file_get_contents($DolarToday, NULL, NULL, 17);
 
@@ -34,9 +34,9 @@ if ($DolarToday != '') {
 
 $jsonDolarToday = json_decode($DolarToday,true);
 	
-$xve_usd = $jsonDolarToday['USD']['efectivo'];
+$xve_usd = $jsonDolarToday['USD']['efectivo_real'];
 
-$xve_eur = $jsonDolarToday['EUR']['efectivo'];
+$xve_eur = $jsonDolarToday['EUR']['efectivo_real'];
 
 if (!isset($xve_usd) || $xve_usd == '') {
 
@@ -47,7 +47,7 @@ if (!isset($xve_usd) || $xve_usd == '') {
 	$xve_eur = $btcven_json_2['exchange_rates']['XVE_EUR'];
 	
 	// Notify by email that DolarToday prices are not working
-	include('notify_mail.php');
+	//include('notify_mail.php');
 }
 	
 if (isset($_GET['json']) && $_GET['json'] == 'yes') {

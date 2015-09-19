@@ -12,6 +12,24 @@ Twitter: @btcven
 Email: contacto@bitcoinvenezuela.com
 */
 
+/*
+$timeDB = "IGNORE/dashboard/remesas_time_2.db"; 
+$time = file($timeDB); 
+if(time()-3600 > $time[0]) { 
+	// han pasado 15 minutos
+
+$remesas = file_get_contents('http://api.bitcoinvenezuela.com/IGNORE/dashboard/?s=tjMRtJ2oBJnZ9Z&print=no');
+
+// write the new timestamp to file 
+$fh = fopen($timeDB, 'w') or die("can't open file"); 
+fwrite($fh, time());
+fclose($fh); 
+
+} else { 
+	// it hasn't been 3 hours yet, so do nothing 
+}
+*/
+
 // Config file with api keys and secrets
 require_once('config.php');
 
@@ -27,14 +45,14 @@ if(time()-900 > $time) {
 	// BTC-e BTC_LTC price
 	include_once('coin/litecoin.php');
 	
-	// MasterXchange BTC_MSC price
-	include_once('coin/mastercoin.php');
+	/*/ MasterXchange BTC_MSC price
+	include_once('coin/mastercoin.php');*
 	
 	$btc_ltc = $exchange_ltc_btc;
-	$msc_ltc = 1/($exchange_msc_btc * $ltc_btc);
+	/*$msc_ltc = 1/($exchange_msc_btc * $ltc_btc);*/
 	
 	$btc_msc = $exchange_msc_btc;
-	$ltc_msc = $exchange_msc_btc * $ltc_btc;
+	/*$ltc_msc = $exchange_msc_btc * $ltc_btc;*/
 	
 	$btcven_export = array (
 	
@@ -49,8 +67,8 @@ if(time()-900 > $time) {
 				'EUR'=>$eur,
 				'VEF'=>$vef,
 				'ARS'=>$ars,
-				'LTC'=>$ltc_btc,
-				'MSC'=>$msc_btc
+				'LTC'=>$ltc_btc/*,
+				'MSC'=>$msc_btc*/
 			),
 		
 		'LTC'=>
@@ -59,11 +77,11 @@ if(time()-900 > $time) {
 				'EUR'=>$eur_ltc,
 				'VEF'=>$vef_ltc,
 				'ARS'=>$ars_ltc,
-				'BTC'=>$btc_ltc,
-				'MSC'=>$msc_ltc
+				'BTC'=>$btc_ltc/*,
+				'MSC'=>$msc_ltc*/
 			),
 			
-		'MSC'=>
+		/*'MSC'=>
 			array(
 				'USD'=>$usd_msc,
 				'EUR'=>$eur_msc,
@@ -71,7 +89,7 @@ if(time()-900 > $time) {
 				'ARS'=>$ars_msc,
 				'BTC'=>$btc_msc,
 				'LTC'=>$ltc_msc
-			),
+			),*/
 	
 		'exchange_rates'=>
 			array(
@@ -106,7 +124,7 @@ if(time()-900 > $time) {
 							($btcven_json_decode['LTC']['ARS'] < $ars ? 0 : 1),
 							($btcven_json_decode['LTC']['BTC'] < $btc_ltc ? 0 : 1),
 							($btcven_json_decode['LTC']['MSC'] < $msc_ltc ? 0 : 1)
-								),
+								)/*,
 					'MSC'=>array(
 							($btcven_json_decode['MSC']['USD'] < $usd ? 0 : 1),
 							($btcven_json_decode['MSC']['EUR'] < $eur ? 0 : 1),
@@ -114,7 +132,7 @@ if(time()-900 > $time) {
 							($btcven_json_decode['MSC']['ARS'] < $ars ? 0 : 1),
 							($btcven_json_decode['MSC']['BTC'] < $btc_msc ? 0 : 1),
 							($btcven_json_decode['MSC']['MSC'] < $ltc_msc ? 0 : 1)
-								)
+								)*/
 					)
 		
 		);
@@ -176,7 +194,7 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 		
 	}
 	
-	// Mastercoin
+	/*/ Mastercoin
 	
 	elseif ($set_currency == 'MSC') {
 		
@@ -189,7 +207,7 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 			$price_in_currency = $set_amount * $btcven_json['MSC']['VEF'];
 		}
 		
-	}
+	}*/
 	
 	// Fiat to Crypto
 	
@@ -303,7 +321,7 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 	
 	}
 	
-	if (isset($_GET['msc']) && $_GET['msc'] == 'yes') {
+	/*if (isset($_GET['msc']) && $_GET['msc'] == 'yes') {
 		
 		echo '<br />1 MSC<br />';
 			
@@ -318,7 +336,7 @@ if (!isset($_GET['html']) || $_GET['html'] == '') {
 			
 		}
 	
-	}
+	}*/
 	
 	if (isset($_GET['rates']) && $_GET['rates'] == 'yes') {
 	

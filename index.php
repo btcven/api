@@ -45,8 +45,8 @@ if(time()-900 > $time) {
 	// BTC-e BTC_LTC price
 	include_once('coin/litecoin.php');
 	
-	// MasterXchange BTC_MSC price
-	include_once('coin/mastercoin.php');
+	/*/ MasterXchange BTC_MSC price
+	include_once('coin/mastercoin.php');*
 	
 	$btc_ltc = $exchange_ltc_btc;
 	/*$msc_ltc = 1/($exchange_msc_btc * $ltc_btc);*/

@@ -1,10 +1,12 @@
 <?php
 
 // USD and EUR Bitcoin prices
-$CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice.json');
+$CoinDesk = file_get_contents('http://api.coindesk.com/v2/bpi/currentprice.json');
 $CoinDesk = json_decode($CoinDesk, true);
 $usd_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['USD']['rate_float'] : $btcven_json_decode['BTC']['USD']);
 $eur_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['EUR']['rate_float'] : $btcven_json_decode['BTC']['EUR']);
+$cny_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['CNY']['rate_float'] : $btcven_json_decode['BTC']['CNY']);
+$gbp_btc = ($CoinDesk != "" ? $CoinDesk['bpi']['GBP']['rate_float'] : $btcven_json_decode['BTC']['GBP']);
 
 // VEF Bitcoin price (gov's regulated price)
 $CoinDesk = file_get_contents('http://api.coindesk.com/v1/bpi/currentprice/vef.json');
@@ -26,8 +28,11 @@ require_once('paralelos.php');
 // Bitcoin prices
 $usd = $usd_btc;
 $eur = $eur_btc;
+$gbp = $gbp_btc;
+$cny = $cny_btc;
 $vef = $xve_usd * $usd_btc;
 $ars = $xar_usd * $usd_btc;
+
 
 // LocalBitcoins prices for coupons
 $LocalBitcoins_24h_avg_usd = file_get_contents("https://localbitcoins.com/equation/localbitcoins_24h_avg_usd");

@@ -25,7 +25,7 @@ require_once('paralelos.php');
 
 // Bitcoin prices
 $usd = $usd_btc;
-$eur = $usd_btc * $eur_usd;
+$eur = $eur_btc;
 $vef = $xve_usd * $usd_btc;
 $ars = $xar_usd * $usd_btc;
 

@@ -1,6 +1,8 @@
 Bitcoin Venezuela API
 ===
 
+# _Note: this repo is outdated and doesn't reflect the code currently in the production server_
+
 Bitcoin Venezuela API shows the current price of Bitcoin in these currencies: **USD**, **EUR**, **VEF**, **ARS**
 
 Exchange rates:

@@ -22,7 +22,7 @@ $ars_usd = $ars_btc / $usd_btc;
 
 // Black Market USD prices in VEF (XVE) and ARS (XAR), EUR price in VEF (XVE)
 require_once('paralelos.php');
-
+// Hola soy Yurian Probando los permisos de acceso
 // Bitcoin prices
 $usd = $usd_btc;
 $eur = $usd_btc * $eur_usd;

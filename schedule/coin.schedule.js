@@ -6,10 +6,12 @@ const momentTimeZone = require('moment-timezone')
 
 const workingEvery5min = async (redisClient) => {
     try {
-        const VEF_BTC = await coinValue.VEF_BTC
-        const getAsync = promisify(redisClient.hmset).bind(redisClient)
-        const reply = await getAsync("key", { 'timestamp': coinValue.timestamp, 'VEF': VEF_BTC })
-        console.log(`${chalk.green('[btven-coin-schedule]')} set value ${reply}`)
+        const coinvalue = await coinValue()
+        if (coinvalue) {   
+            const getAsync = promisify(redisClient.hmset).bind(redisClient)
+            const reply = await getAsync("key", { 'timestamp': coinvalue.timestamp, 'VEF': coinvalue.VEF_BTC })
+            console.log(`${chalk.green('[btven-coin-schedule]')} set value ${coinvalue.VEF_BTC}`)
+        }
     } catch (error) {
         throw Error(error)
     }

@@ -7,9 +7,9 @@ const momentTimeZone = require('moment-timezone')
 const workingEveryhour = async () => {
     try {
         let m1 = momentTimeZone().tz('America/Caracas')
-        const VEF_BTC = await coinValue.VEF_BTC
+        const coinvalue = await coinValue()
         const historicCoinModel = new HistoricCoinModel()
-        historicCoinModel.VEF_BTC = VEF_BTC
+        historicCoinModel.VEF_BTC = coinvalue.VEF_BTC
         historicCoinModel.date =  m1.format("YYYY-MM-DD")
         const historicSaveResult = await historicCoinModel.save()
         if (historicSaveResult) {

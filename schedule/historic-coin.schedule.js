@@ -3,13 +3,14 @@ const cron = require('node-cron')
 const chalk = require('chalk')
 const coinValue = require('../services/index')
 const HistoricCoinModel = require('../api/src/models/historic-coin.model')
-var moment = require('moment')
+var momentTimeZone = require('moment-timezone')
 const workingEveryhour = async () => {
     try {
+        let m1 = momentTimeZone().tz('America/Caracas')
         const VEF_BTC = await coinValue.VEF_BTC
         const historicCoinModel = new HistoricCoinModel()
         historicCoinModel.VEF_BTC = VEF_BTC
-        historicCoinModel.date =  moment().format("YYYY-MM-DD")
+        historicCoinModel.date =  m1.format("YYYY-MM-DD")
         const historicSaveResult = await historicCoinModel.save()
         if (historicSaveResult) {
             console.log(`${chalk.green('[btven-coin-schedule]')} save succesfull historic`)

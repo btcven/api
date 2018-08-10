@@ -3,7 +3,7 @@ const cron = require('node-cron')
 const chalk = require('chalk')
 const coinValue = require('../services/index')
 const HistoricCoinModel = require('../api/src/models/historic-coin.model')
-var momentTimeZone = require('moment-timezone')
+const momentTimeZone = require('moment-timezone')
 const workingEveryhour = async () => {
     try {
         let m1 = momentTimeZone().tz('America/Caracas')
@@ -13,7 +13,7 @@ const workingEveryhour = async () => {
         historicCoinModel.date =  m1.format("YYYY-MM-DD")
         const historicSaveResult = await historicCoinModel.save()
         if (historicSaveResult) {
-            console.log(`${chalk.green('[btven-coin-schedule]')} save succesfull historic`)
+            console.log(`${chalk.green('[btven-coin-schedule]')} save succesfull historic ${m1}`)
         } else {
             throw Error(`Not save historic coin`)
         }
@@ -23,7 +23,7 @@ const workingEveryhour = async () => {
 }
 const SaveDataDB = () => {
     workingEveryhour()
-    cron.schedule('* 6 * * *', () => {
+    cron.schedule('* 0,6,12,18 * * *', () => {
         workingEveryhour()
     })
 }

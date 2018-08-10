@@ -23,7 +23,7 @@ const workingEveryhour = async () => {
 }
 const SaveDataDB = () => {
     workingEveryhour()
-    cron.schedule('* 0,6,12,18 * * *', () => {
+    cron.schedule('* */6 * * *', () => {
         workingEveryhour()
     })
 }

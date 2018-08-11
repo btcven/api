@@ -18,6 +18,18 @@ const historicCoinSchema = new Schema({
         type: String,
         required: true
       },
+      XMR_BTC: {
+        type: String,
+        required: true
+      },
+      ETH_BTC: {
+        type: String,
+        required: true
+      },
+      LTC_BTC: {
+        type: String,
+        required: true
+      },
       date: {
         type: String,
         required: true

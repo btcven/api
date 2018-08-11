@@ -27,8 +27,11 @@ const formatHistoric = historicCoin =>{
     let jsonUSD_BTC = {}
     let jsonGBP_BTC = {}
     let jsonEUR_BTC = {}
+    let jsonXMR_BTC = {}
+    let jsonETH_BTC = {}
+    let jsonLTC_BTC = {}
     let historicresult = {}
-    historicCoin.map(  (historic,clave,arr) => {
+    historicCoin.map( historic => {
         for (let propiedad in historic) {
             if (historic.hasOwnProperty(propiedad)) {
                 if (propiedad === 'VEF_BTC') {
@@ -46,6 +49,18 @@ const formatHistoric = historicCoin =>{
                 if (propiedad === 'EUR_BTC') {
                     jsonEUR_BTC[historic.date] = historic.EUR_BTC
                     historicresult.EUR_BTC = jsonEUR_BTC
+                }
+                if (propiedad === 'XMR_BTC') {
+                    jsonXMR_BTC[historic.date] = historic.XMR_BTC
+                    historicresult.XMR_BTC = jsonXMR_BTC
+                }
+                if (propiedad === 'ETH_BTC') {
+                    jsonETH_BTC[historic.date] = historic.ETH_BTC
+                    historicresult.ETH_BTC = jsonETH_BTC
+                }
+                if (propiedad === 'LTC_BTC') {
+                    jsonLTC_BTC[historic.date] = historic.LTC_BTC
+                    historicresult.LTC_BTC = jsonLTC_BTC
                 }
             }
         }

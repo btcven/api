@@ -4,7 +4,6 @@ const {promisify} = require('util')
 const jsonCoin = async (req,res) => {
     const getAsync = promisify(redisClient.hgetall).bind(redisClient)
     const reply = await getAsync("key")
-    console.log(construcResp(reply))
     res.status(200).send(construcResp(reply))
 }
 const construcResp = (reply) => {
@@ -13,7 +12,10 @@ const construcResp = (reply) => {
             'BTC':  {   "VEF":reply.VEF_BTC,
                         "USD":reply.USD_BTC,
                         "GBP":reply.GBP_BTC,
-                        "EUR":reply.EUR_BTC
+                        "EUR":reply.EUR_BTC,
+                        "XMR":reply.XMR_BTC,
+                        "ETH":reply.ETH_BTC,
+                        "LTC":reply.LTC_BTC
                     }
             }
 }

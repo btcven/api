@@ -9,11 +9,14 @@ const workingEveryhour = async () => {
         let m1 = momentTimeZone().tz('America/Caracas')
         const coinvalue = await coinValue()
         const historicCoinModel = new HistoricCoinModel()
+        historicCoinModel.date =  m1.format("YYYY-MM-DD")
         historicCoinModel.VEF_BTC = coinvalue.VEF_BTC
         historicCoinModel.USD_BTC = coinvalue.USD_BTC
         historicCoinModel.GBP_BTC = coinvalue.GBP_BTC
         historicCoinModel.EUR_BTC = coinvalue.EUR_BTC
-        historicCoinModel.date =  m1.format("YYYY-MM-DD")
+        historicCoinModel.XMR_BTC = coinvalue.XMR_BTC
+        historicCoinModel.ETH_BTC = coinvalue.ETH_BTC
+        historicCoinModel.LTC_BTC = coinvalue.LTC_BTC
         const historicSaveResult = await historicCoinModel.save()
         if (historicSaveResult) {
             console.log(`${chalk.green('[btven-coin-schedule]')} save succesfull historic ${m1}`)
@@ -26,7 +29,7 @@ const workingEveryhour = async () => {
 }
 const SaveDataDB = () => {
     workingEveryhour()
-    cron.schedule('* */6 * * *', () => {
+    cron.schedule('0 */6 * * *', () => {
         workingEveryhour()
     })
 }

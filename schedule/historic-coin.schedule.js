@@ -10,6 +10,9 @@ const workingEveryhour = async () => {
         const coinvalue = await coinValue()
         const historicCoinModel = new HistoricCoinModel()
         historicCoinModel.VEF_BTC = coinvalue.VEF_BTC
+        historicCoinModel.USD_BTC = coinvalue.USD_BTC
+        historicCoinModel.GBP_BTC = coinvalue.GBP_BTC
+        historicCoinModel.EUR_BTC = coinvalue.EUR_BTC
         historicCoinModel.date =  m1.format("YYYY-MM-DD")
         const historicSaveResult = await historicCoinModel.save()
         if (historicSaveResult) {

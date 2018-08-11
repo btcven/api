@@ -2,7 +2,7 @@
 const superagent = require('superagent')
 const stats = require('stats-lite')
 const chalk = require('chalk')
-const debug = require('debug')('btcven-api-v2:btc-service')
+const debug = require('debug')('btcven-api-v2:btc-vef-service')
 const btcVefPrice = async () => {
     try {
         const localBTC = await superagent.get('https://localbitcoins.com/bitcoincharts/VEF/orderbook.json')

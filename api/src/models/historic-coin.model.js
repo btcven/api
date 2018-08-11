@@ -6,6 +6,18 @@ const historicCoinSchema = new Schema({
         type: String,
         required: true
       },
+      USD_BTC: {
+        type: String,
+        required: true
+      },
+      GBP_BTC: {
+        type: String,
+        required: true
+      },
+      EUR_BTC: {
+        type: String,
+        required: true
+      },
       date: {
         type: String,
         required: true

@@ -22,8 +22,11 @@ require('mongoose-pagination')
         console.log(`${chalk.red('[fatal error]')} ${error.message}`)
     }
 }
-const formatHistoric = (historicCoin) =>{
+const formatHistoric = historicCoin =>{
     let jsonVEF_BTC = {}
+    let jsonUSD_BTC = {}
+    let jsonGBP_BTC = {}
+    let jsonEUR_BTC = {}
     let historicresult = {}
     historicCoin.map(  (historic,clave,arr) => {
         for (let propiedad in historic) {
@@ -31,6 +34,18 @@ const formatHistoric = (historicCoin) =>{
                 if (propiedad === 'VEF_BTC') {
                     jsonVEF_BTC[historic.date] = historic.VEF_BTC
                     historicresult.VEF_BTC = jsonVEF_BTC
+                }
+                if (propiedad === 'USD_BTC') {
+                    jsonUSD_BTC[historic.date] = historic.USD_BTC
+                    historicresult.USD_BTC = jsonUSD_BTC
+                }
+                if (propiedad === 'GBP_BTC') {
+                    jsonGBP_BTC[historic.date] = historic.GBP_BTC
+                    historicresult.GBP_BTC = jsonGBP_BTC
+                }
+                if (propiedad === 'EUR_BTC') {
+                    jsonEUR_BTC[historic.date] = historic.EUR_BTC
+                    historicresult.EUR_BTC = jsonEUR_BTC
                 }
             }
         }

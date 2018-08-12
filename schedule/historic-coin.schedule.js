@@ -17,6 +17,27 @@ const workingEveryhour = async () => {
         historicCoinModel.XMR_BTC = coinvalue.XMR_BTC
         historicCoinModel.ETH_BTC = coinvalue.ETH_BTC
         historicCoinModel.LTC_BTC = coinvalue.LTC_BTC
+        historicCoinModel.VEF_LTC = coinvalue.VEF_LTC
+        historicCoinModel.USD_LTC = coinvalue.USD_LTC
+        historicCoinModel.GBD_LTC = coinvalue.GBD_LTC
+        historicCoinModel.EUR_LTC = coinvalue.EUR_LTC
+        historicCoinModel.XMR_LTC = coinvalue.XMR_LTC
+        historicCoinModel.ETH_LTC = coinvalue.ETH_LTC
+        historicCoinModel.ARS_LTC = coinvalue.ARS_LTC
+        historicCoinModel.VEF_XMR = coinvalue.VEF_XMR
+        historicCoinModel.USD_XMR = coinvalue.USD_XMR
+        historicCoinModel.GBD_XMR = coinvalue.GBD_XMR
+        historicCoinModel.EUR_XMR = coinvalue.EUR_XMR
+        historicCoinModel.ETH_XMR = coinvalue.ETH_XMR
+        historicCoinModel.LTC_XMR = coinvalue.LTC_XMR
+        historicCoinModel.ARS_XMR = coinvalue.ARS_XMR
+        historicCoinModel.VEF_ETH = coinvalue.VEF_ETH
+        historicCoinModel.USD_ETH = coinvalue.USD_ETH
+        historicCoinModel.GBD_ETH = coinvalue.GBD_ETH
+        historicCoinModel.EUR_ETH = coinvalue.EUR_ETH
+        historicCoinModel.XMR_ETH = coinvalue.XMR_ETH
+        historicCoinModel.LTC_ETH = coinvalue.LTC_ETH
+        historicCoinModel.ARS_ETH = coinvalue.ARS_ETH
         const historicSaveResult = await historicCoinModel.save()
         if (historicSaveResult) {
             console.log(`${chalk.green('[btven-coin-schedule]')} save succesfull historic ${m1}`)

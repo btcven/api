@@ -1,6 +1,7 @@
-# Bitcoin Venezuela API V2
+Bitcoin Venezuela API V2
+===
 
-How to enable BTCVEF-only mode:
+Cómo instalar la versión sólo-BTCVEF:
 
 **Debe tener instalado y configurado:**
 
@@ -18,7 +19,7 @@ How to enable BTCVEF-only mode:
  _ejecute el comando "npm install forever"
 
 
-**Instalacion y ejecucion**
+**Instalacion y ejecucion:**
 
 - Open Port 3000 
 - Cree o ubiquese en la carpeta donde alojara el codigo fuente
@@ -26,7 +27,31 @@ How to enable BTCVEF-only mode:
 - Ubiquese en la capeta -> "api"
 - Ejecute el comando -> "npm install"
 - Ejecute el comando -> "forever start main.js" y "forever stop main.js" para detener
-- Done -> Solicite la http://addresserver:3000/coin desde cualquier navegador.
+- Done -> Solicite la http://addresserver:3000/coin desde cualquier navegador
+
+
+
+How to enable BTCVEF-only mode:
+
+**You need to have installed and already set:**
+
+- Nodejs
+
+- Redis
+
+- Forever
+ _run the command "npm install forever"
+
+
+**Installation and execution:**
+
+- Open Port 3000 
+- Create or go to the directory where you will run the source code from
+- Clone repo -> git clone https://github.com/btcven/api.git
+- Go to the directory -> "api"
+- Run the command -> "npm install"
+- Run the command -> "forever start main.js" and "forever stop main.js" to stop it
+- Done -> You can visit http://addresserver:3000/coin from any browser
 
 
 

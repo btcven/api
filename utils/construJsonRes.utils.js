@@ -1,5 +1,7 @@
 module.exports = reply => {
-    return {"time": {"timestamp":reply.timestamp}, 
+    return {"time": {
+                        "timestamp":reply.timestamp
+                     }, 
              'BTC':  {  "USD":reply.USD_BTC,
                         "EUR":reply.EUR_BTC,
                         "VEF":reply.VEF_BTC,

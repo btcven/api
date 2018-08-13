@@ -33,7 +33,7 @@ module.exports = (vef_btc,UsdEurGbp,XMR,ETH,LTC,ARS,UsdEur) =>{
     object.XAR_USD = ars_usd
     object.VEF_LTC = vef_btc*onlyLtc
     object.USD_LTC = usd_btc*onlyLtc
-    object.GBD_LTC = gbp_btc*onlyLtc
+    object.GBP_BTC = gbp_btc*onlyLtc
     object.EUR_LTC = eur_btc*onlyLtc
     object.XMR_LTC = xmr_btc*onlyLtc
     object.ETH_LTC = eth_btc*onlyLtc

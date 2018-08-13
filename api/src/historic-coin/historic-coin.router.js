@@ -4,6 +4,6 @@ const asyncify = require('express-asyncify')
 const api = asyncify(express.Router())
 const historicCoin = require('./historic-coin.controller')
 
-api.get('/historic/:page?',historicCoin);
+api.get('/historical/:page?',historicCoin);
 
 module.exports = api

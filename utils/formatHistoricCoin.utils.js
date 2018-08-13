@@ -8,21 +8,21 @@ module.exports = historicCoin => {
     let jsonLTC_BTC = {}
     let jsonVEF_LTC = {}
     let jsonUSD_LTC = {}
-    let jsonGBD_LTC = {}
+    let jsonGBP_LTC = {}
     let jsonEUR_LTC = {}
     let jsonXMR_LTC = {}
     let jsonETH_LTC = {}
     let jsonARS_LTC = {}
     let jsonVEF_XMR = {}
     let jsonUSD_XMR = {}
-    let jsonGBD_XMR = {}
+    let jsonGBP_XMR = {}
     let jsonEUR_XMR = {}
     let jsonETH_XMR = {}
     let jsonLTC_XMR = {}
     let jsonARS_XMR = {}
     let jsonVEF_ETH = {}
     let jsonUSD_ETH = {}
-    let jsonGBD_ETH = {}
+    let jsonGBP_ETH = {}
     let jsonEUR_ETH = {}
     let jsonXMR_ETH = {}
     let jsonLTC_ETH = {}
@@ -67,9 +67,9 @@ module.exports = historicCoin => {
                     jsonUSD_LTC[historic.date] = historic.USD_LTC
                     historicresult.USD_LTC = jsonUSD_LTC
                 }
-                if (propiedad === 'GBD_LTC') {
-                    jsonGBD_LTC[historic.date] = historic.GBD_LTC
-                    historicresult.GBD_LTC = jsonGBD_LTC
+                if (propiedad === 'GBP_LTC') {
+                    jsonGBP_LTC[historic.date] = historic.GBP_LTC
+                    historicresult.GBP_LTC = jsonGBP_LTC
                 }
                 if (propiedad === 'EUR_LTC') {
                     jsonEUR_LTC[historic.date] = historic.EUR_LTC
@@ -95,9 +95,9 @@ module.exports = historicCoin => {
                     jsonUSD_XMR[historic.date] = historic.USD_XMR
                     historicresult.USD_XMR = jsonUSD_XMR
                 }
-                if (propiedad === 'GBD_XMR') {
-                    jsonGBD_XMR[historic.date] = historic.GBD_XMR
-                    historicresult.GBD_XMR = jsonGBD_XMR
+                if (propiedad === 'GBP_XMR') {
+                    jsonGBP_XMR[historic.date] = historic.GBP_XMR
+                    historicresult.GBP_XMR = jsonGBP_XMR
                 }
                 if (propiedad === 'EUR_XMR') {
                     jsonEUR_XMR[historic.date] = historic.EUR_XMR
@@ -123,9 +123,9 @@ module.exports = historicCoin => {
                     jsonUSD_ETH[historic.date] = historic.USD_ETH
                     historicresult.USD_ETH = jsonUSD_ETH
                 }
-                if (propiedad === 'GBD_ETH') {
-                    jsonGBD_ETH[historic.date] = historic.GBD_ETH
-                    historicresult.GBD_ETH = jsonGBD_ETH
+                if (propiedad === 'GBP_ETH') {
+                    jsonGBP_ETH[historic.date] = historic.GBP_ETH
+                    historicresult.GBP_ETH = jsonGBP_ETH
                 }
                 if (propiedad === 'EUR_ETH') {
                     jsonEUR_ETH[historic.date] = historic.EUR_ETH

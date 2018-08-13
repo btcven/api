@@ -19,7 +19,7 @@ const workingEveryhour = async () => {
         historicCoinModel.LTC_BTC = coinvalue.LTC_BTC
         historicCoinModel.VEF_LTC = coinvalue.VEF_LTC
         historicCoinModel.USD_LTC = coinvalue.USD_LTC
-        historicCoinModel.GBD_LTC = coinvalue.GBD_LTC
+        historicCoinModel.GBP_BTC = coinvalue.GBP_BTC
         historicCoinModel.EUR_LTC = coinvalue.EUR_LTC
         historicCoinModel.XMR_LTC = coinvalue.XMR_LTC
         historicCoinModel.ETH_LTC = coinvalue.ETH_LTC

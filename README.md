@@ -1,26 +1,27 @@
-Bitcoin Venezuela API V2
+# Bitcoin Venezuela API V2
+===
 
 How to enable BTCVEF-only mode:
 
-*Debe tener instalado y configurado:
+- Debe tener instalado y configurado:
 
--Nodejs
+**Nodejs**
 
- Aqui una pequeña guia para la instalacion y configuracion para Digital Ocean Ubuntu:
- --->> https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04
+ _Aqui una pequeña guia para la instalacion y configuracion para Digital Ocean Ubuntu:
+  https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04
 
--Redis
+**Redis**
 
- Aqui una pequeña guia para la instalacion y configuracion para Digital Ocean Ubuntu:
- --->> https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
+ _Aqui una pequeña guia para la instalacion y configuracion para Digital Ocean Ubuntu:
+  https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
- - Forever
- --->> ejecute el comando "npm install forever"
+**Forever**
+ _ejecute el comando "npm install forever"
 
 
-*Instalacion y ejecucion:
+- Instalacion y ejecucion:
 
- - Open Port 3000 
+-Open Port 3000 
 -Cree o ubiquese en la carpeta donde alojara el codigo fuente
 -Clone repo --->> git clone https://github.com/btcven/api.git
 -Ubiquese en la capeta --->> "api"

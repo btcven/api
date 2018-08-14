@@ -23,8 +23,8 @@ const savejsonfile = (historicCoin) => {
     console.log(jsonData);
     
     var file = '../tmp/historic/data.json'
-    fs.chmod(file, 777, function(err){
-        if(err){
+    /* fs.chmod(file, 777, function(err){
+        if(err){ */
             jsonfile.writeFile(file, jsonData, function (err) {
                 if (err) {
                  debug("An error occured while writing JSON Object to File.")
@@ -32,10 +32,10 @@ const savejsonfile = (historicCoin) => {
                     debug("JSON file has been saved.")
                 }
             });
-        }else {
+        /* }else {
             debug("An error occured while permission JSON File.")
         }
-    })
+    }) */
 }
 
 module.exports = historicCoinQuery

@@ -4,7 +4,7 @@
   "description": "Api para consulta de tasas Criptomonedas",
   "main": "index.js",
   "scripts": {
-    "start": "set DEBUG=btcven-api-v2:* & nodemon index.js"
+    "start": "set DEBUG=btcven-api-v2:* & node index.js"
   },
   "repository": {
     "type": "git",

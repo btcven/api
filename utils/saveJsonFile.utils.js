@@ -1,6 +1,5 @@
 'use strict'
 const historicCoinModel = require('../api/src/models/historic-coin.model')
-var fs = require('fs')
 const formatHistoric = require('./formatHistoricCoin.utils')
 const jsonfile = require('jsonfile')
 const debug = require('debug')('btcven-api-v2:saveJsonFile-utils')
@@ -18,8 +17,8 @@ require('mongoose-pagination')
         console.log(`${chalk.red('[fatal error]')} ${error.message}`)
     }
 }
-const savejsonfile = (historicCoin) => {
-    jsonfile.writeFile('historic.json', formatHistoric(historicCoin), function (err) {
+const savejsonfile = historicCoin => {
+    jsonfile.writeFile('historic.json', formatHistoric(historicCoin), err => {
         if (err) {
             console.log("An error occured while writing JSON Object to File.")
         }else {

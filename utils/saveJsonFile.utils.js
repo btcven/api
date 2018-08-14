@@ -20,6 +20,8 @@ require('mongoose-pagination')
 }
 const savejsonfile = (historicCoin) => {
     var jsonData = formatHistoric(historicCoin)
+    console.log(jsonData);
+    
     var file = '../tmp/historic/data.json'
     fs.chmod(file, 777, function(err){
         if(err){

@@ -4,6 +4,7 @@ const chalk = require('chalk')
 const coinValue = require('../services/index')
 const HistoricCoinModel = require('../api/src/models/historic-coin.model')
 const momentTimeZone = require('moment-timezone')
+const savejsonfile = require('../utils/saveJsonFile.utils')
 const workingEveryhour = async () => {
     try {
         let m1 = momentTimeZone().tz('America/Caracas')
@@ -41,6 +42,7 @@ const workingEveryhour = async () => {
         const historicSaveResult = await historicCoinModel.save()
         if (historicSaveResult) {
             console.log(`${chalk.green('[btven-coin-schedule]')} save succesfull historic ${m1}`)
+            savejsonfile()
         } else {
             throw Error(`Not save historic coin`)
         }

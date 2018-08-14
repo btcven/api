@@ -42,7 +42,7 @@ const historicCoinSchema = new Schema({
         type: Number,
         required: true
       },
-      GBP_BTC: {
+      GBP_LTC: {
         type: Number,
         required: true
       },
@@ -70,7 +70,7 @@ const historicCoinSchema = new Schema({
         type: Number,
         required: true
       },
-      GBD_XMR: {
+      GBP_XMR: {
         type: Number,
         required: true
       },
@@ -98,7 +98,7 @@ const historicCoinSchema = new Schema({
         type: Number,
         required: true
       },
-      GBD_ETH: {
+      GBP_ETH: {
         type: Number,
         required: true
       },

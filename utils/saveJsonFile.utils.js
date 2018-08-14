@@ -19,15 +19,10 @@ require('mongoose-pagination')
     }
 }
 const savejsonfile = (historicCoin) => {
-    var jsonData = formatHistoric(historicCoin)
-    console.log(jsonData)
-    var file = '../tmp/historic/data.json'
-    jsonfile.writeFile('data.json', jsonData, function (err) {
+    jsonfile.writeFile('historic.json', formatHistoric(historicCoin), function (err) {
         if (err) {
-            debug("An error occured while writing JSON Object to File.")
             console.log("An error occured while writing JSON Object to File.")
         }else {
-            debug("JSON file has been saved.")
             console.log("JSON file has been saved.")
         }
     })

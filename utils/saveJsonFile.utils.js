@@ -25,7 +25,7 @@ const savejsonfile = (historicCoin) => {
     var file = '../tmp/historic/data.json'
     /* fs.chmod(file, 777, function(err){
         if(err){ */
-            jsonfile.writeFile(file, jsonData, function (err) {
+            jsonfile.writeFile('data.json', jsonData, function (err) {
                 if (err) {
                  debug("An error occured while writing JSON Object to File.")
                 }else {

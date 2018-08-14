@@ -6,7 +6,7 @@ const  jsonfile = require('jsonfile')
  async function historicCoinQuery(req,res){
 const file = '../../../tmp/historic/data.json'
 
-jsonfile.readFile(file, function(err, obj) {
+jsonfile.readFile('data.json', function(err, obj) {
     if (err) {
         debug("An error occured while reading JSON Object to File.")
     }

@@ -1,46 +1,46 @@
 module.exports = reply => {
     return {"time": {
-                        "timestamp":reply.timestamp
+                        "timestamp": Number(reply.timestamp)
                      }, 
-             'BTC':  {  "USD":reply.USD_BTC,
-                        "EUR":reply.EUR_BTC,
-                        "VEF":reply.VEF_BTC,
-                        "GBP":reply.GBP_BTC,
-                        "XMR":reply.XMR_BTC,
-                        "ETH":reply.ETH_BTC,
-                        "LTC":reply.LTC_BTC,
-                        "ARS":reply.ARS_BTC
+             'BTC':  {  "USD": Number(reply.USD_BTC),
+                        "EUR": Number(reply.EUR_BTC),
+                        "VEF": Number(reply.VEF_BTC),
+                        "GBP": Number(reply.GBP_BTC),
+                        "XMR": Number(reply.XMR_BTC),
+                        "ETH": Number(reply.ETH_BTC),
+                        "LTC": Number(reply.LTC_BTC),
+                        "ARS": Number(reply.ARS_BTC)
                     },
-            'LTC':  {   "VEF":reply.VEF_LTC,
-                        "USD":reply.USD_LTC,
-                        "GBP":reply.GBP_LTC,
-                        "EUR":reply.EUR_LTC,
-                        "XMR":reply.XMR_LTC,
-                        "ETH":reply.ETH_LTC,
-                        "ARS":reply.ARS_LTC
+            'LTC':  {   "VEF": Number(reply.VEF_LTC),
+                        "USD": Number(reply.USD_LTC),
+                        "GBP": Number(reply.GBP_LTC),
+                        "EUR": Number(reply.EUR_LTC),
+                        "XMR": Number(reply.XMR_LTC),
+                        "ETH": Number(reply.ETH_LTC),
+                        "ARS": Number(reply.ARS_LTC)
                     },
-            'XMR':  {   "VEF":reply.VEF_XMR,
-                        "USD":reply.USD_XMR,
-                        "GBP":reply.GBP_XMR,
-                        "EUR":reply.EUR_XMR,
-                        "LTC":reply.LTC_XMR,
-                        "ETH":reply.ETH_XMR,
-                        "ARS":reply.ARS_XMR
+            'XMR':  {   "VEF": Number(reply.VEF_XMR),
+                        "USD": Number(reply.USD_XMR),
+                        "GBP": Number(reply.GBP_XMR),
+                        "EUR": Number(reply.EUR_XMR),
+                        "LTC": Number(reply.LTC_XMR),
+                        "ETH": Number(reply.ETH_XMR),
+                        "ARS": Number(reply.ARS_XMR)
                     },
-            'ETH':  {   "VEF":reply.VEF_ETH,
-                        "USD":reply.USD_ETH,
-                        "GBP":reply.GBP_ETH,
-                        "EUR":reply.EUR_ETH,
-                        "LTC":reply.LTC_ETH,
-                        "XMR":reply.XMR_ETH,
-                        "ARS":reply.ARS_ETH
+            'ETH':  {   "VEF": Number(reply.VEF_ETH),
+                        "USD": Number(reply.USD_ETH),
+                        "GBP": Number(reply.GBP_ETH),
+                        "EUR": Number(reply.EUR_ETH),
+                        "LTC": Number(reply.LTC_ETH),
+                        "XMR": Number(reply.XMR_ETH),
+                        "ARS": Number(reply.ARS_ETH)
                     },
-  'exchange_rates': {   "EUR_USD":reply.EUR_USD,
-                        "VEF_USD":reply.VEF_USD,
-                        "ARS_USD":reply.ARS_USD,
-                        "XVE_USD":reply.XVE_USD,
-                        "XVE_EUR":reply.XVE_EUR,
-                        "XAR_USD":reply.XAR_USD
+  'exchange_rates': {   "EUR_USD": Number(reply.EUR_USD),
+                        "VEF_USD": Number(reply.VEF_USD),
+                        "ARS_USD": Number(reply.ARS_USD),
+                        "XVE_USD": Number(reply.XVE_USD),
+                        "XVE_EUR": Number(reply.XVE_EUR),
+                        "XAR_USD": Number(reply.XAR_USD)
                     },
             }
 }

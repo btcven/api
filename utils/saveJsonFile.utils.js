@@ -25,8 +25,10 @@ const savejsonfile = (historicCoin) => {
     jsonfile.writeFile('data.json', jsonData, function (err) {
         if (err) {
             debug("An error occured while writing JSON Object to File.")
+            console.log("An error occured while writing JSON Object to File.")
         }else {
             debug("JSON file has been saved.")
+            console.log("JSON file has been saved.")
         }
     })
 }

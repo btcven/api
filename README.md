@@ -82,7 +82,7 @@ You can use the data of this API making requests to `https://api.bitcoinvenezuel
 
 ### Calculator
 
-https://api.bitcoinvenezuela.com/?html=no&currency=_currency_&amount=_amount_[&to=_currency_]
+`https://api.bitcoinvenezuela.com/?html=no&currency= _currency_ &amount= _amount_ [&to= _currency_ ]`
 
 ?html=no _*_
 
@@ -102,10 +102,10 @@ https://api.bitcoinvenezuela.com/historical/[?coin=_coin_][?pair=_pair_]
 
 Historical data can be filtered by coin: **BTC**, **LTC**, ~~**MSC**~~
 
-Or to a specific pair of currencies: **BTCUSD**, **BTCEUR**, **BTCVEF**, **BTCARS**, **LTCUSD**, **LTCEUR**, **LTCVEF**, **LTCARS**, **LTCBTC**, ~~**MSCUSD**, **MSCEUR**, **MSCVEF**, **MSCARS**, **MSCBTC**
+Or to a specific pair of currencies: **BTCUSD**, **BTCEUR**, **BTCVEF**, **BTCARS**, **LTCUSD**, **LTCEUR**, **LTCVEF**, **LTCARS**, **LTCBTC**, ~~**MSCUSD**, **MSCEUR**, **MSCVEF**, **MSCARS**, **MSCBTC**~~
 
 
-### ~~DolarToday
+### ~~DolarToday~~
 
 ~~Data taken from DolarToday.com can be accessed here~~
 

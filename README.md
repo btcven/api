@@ -1,22 +1,23 @@
-Bitcoin Venezuela API V2
+Bitcoin Venezuela API v2
 ===
 
-¿Cómo instalar la versión sólo BTCVEF?:
+## Cómo instalar la versión sólo BTCVEF:
 
 **Debe tener instalado y configurado:**
 
 - Nodejs
 
- _Aquí una pequeña guía para la instalación y configuración para Digital Ocean Ubuntu:
+ - *Aquí una pequeña guía para la instalación y configuración para Digital Ocean Ubuntu:
   https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04
 
 - Redis
 
- _Aquí una pequeña guía para la instalación y configuración para Digital Ocean Ubuntu:
+ - *Aquí una pequeña guía para la instalación y configuración para Digital Ocean Ubuntu:
   https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
 - Forever
- _ejecute el comando `npm install forever`
+ 
+ - *ejecute el comando `npm install forever`
 
 **Instalacion y ejecucion:**
 
@@ -28,7 +29,8 @@ Bitcoin Venezuela API V2
 - Ejecute el comando -> "forever start main.js" y "forever stop main.js" para detener
 - Done -> Solicite la https://addresserver:3000/coin desde cualquier navegador
 
-How to enable BTCVEF-only mode:
+## How to enable BTCVEF-only mode:
+===
 
 **You need to have installed and already set:**
 - Nodejs
@@ -46,7 +48,8 @@ How to enable BTCVEF-only mode:
 - Run the command -> "forever start main.js" and "forever stop main.js" to stop it
 - Done -> You can visit https://addresserver:3000/coin from any browser
 
-Bitcoin Venezuela API
+
+Bitcoin Venezuela API *(v1)*
 ===
 Bitcoin Venezuela API shows the current price of Bitcoin in these currencies: **USD**, **EUR**, **VEF**, **ARS**
 
@@ -59,56 +62,56 @@ Exchange rates:
 - XVE _per_ EUR
 - XAR _per_ USD
 
-Current LocalBitcoins' coupons price: **USD**, **VEF**
+~~Current LocalBitcoins' coupons price: **USD**, **VEF**~~ *(deprecated)*
 
-# Options
+### Options
 
 You can use the data of this API making requests to `https://api.bitcoinvenezuela.com`
 
-It could also be embedded as an iframe with this options:
+~~It could also be embedded as an iframe with this options:
 
-- Show as HTML: https://api.bitcoinvenezuela.com?html=yes [&ltc=yes] [&msc=yes] [&rates=yes] [&coupons=yes]
+~~- Show as HTML: https://api.bitcoinvenezuela.com?html=yes [&ltc=yes] [&msc=yes] [&rates=yes] [&coupons=yes]~~
 
-- Show Litecoin prices: &ltc=yes
+~~- Show Litecoin prices: &ltc=yes
 
-- Show Mastercoin prices: &msc=yes
+~~- Show Mastercoin prices: &msc=yes
 
-- Show exchange rates: &rates=yes
+~~- Show exchange rates: &rates=yes
 
-- Show LocalBitcoins' coupons price: &coupons=yes
+~~- Show LocalBitcoins' coupons price: &coupons=yes
 
 
-# Calculator
-```
+### Calculator
+
 https://api.bitcoinvenezuela.com/?html=no&currency=_currency_&amount=_amount_[&to=_currency_]
-```
+
 ?html=no _*_
 
 &currency= _*_: **BTC**, **USD**, **EUR**, **VEF**, **ARS**. Gives the amount of bitcoins for this currency.
 
 &amount= _*_: amount of the given currency.
 
-&to= : set this field to calculate BTC, LTC or MSC to this _currency_. If not set the default currency used is VEF.
+&to= : set this field to calculate BTC, LTC ~~or MSC~~ to this _currency_. If not set the default currency used is VEF.
 
 _* required_
 
-# Historical
+### Historical
 
 Show the recorded prices for Bitcoin and Litecoin in USD, EUR, VEF and ARS.
-```
+
 https://api.bitcoinvenezuela.com/historical/[?coin=_coin_][?pair=_pair_]
-```
-Historical data can be filtered by coin: **BTC**, **LTC**, **MSC**
 
-Or to a specific pair of currencies: **BTCUSD**, **BTCEUR**, **BTCVEF**, **BTCARS**, **LTCUSD**, **LTCEUR**, **LTCVEF**, **LTCARS**, **LTCBTC**, **MSCUSD**, **MSCEUR**, **MSCVEF**, **MSCARS**, **MSCBTC**
+Historical data can be filtered by coin: **BTC**, **LTC**, ~~**MSC**
+
+Or to a specific pair of currencies: **BTCUSD**, **BTCEUR**, **BTCVEF**, **BTCARS**, **LTCUSD**, **LTCEUR**, **LTCVEF**, **LTCARS**, **LTCBTC**, ~~**MSCUSD**, **MSCEUR**, **MSCVEF**, **MSCARS**, **MSCBTC**
 
 
-# DolarToday
+### ~~DolarToday
 
-Data taken from DolarToday.com can be accessed here
-```
-https://api.bitcoinvenezuela.com/DolarToday.php?json=yes
-```
+~~Data taken from DolarToday.com can be accessed here
+
+~~https://api.bitcoinvenezuela.com/DolarToday.php?json=yes
+
 
 # Donations
 

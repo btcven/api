@@ -67,17 +67,17 @@ Exchange rates:
 
 You can use the data of this API making requests to `https://api.bitcoinvenezuela.com`
 
-~~It could also be embedded as an iframe with this options:
+~~It could also be embedded as an iframe with this options:~~
 
-~~- Show as HTML: https://api.bitcoinvenezuela.com?html=yes [&ltc=yes] [&msc=yes] [&rates=yes] [&coupons=yes]~~
+- ~~Show as HTML: https://api.bitcoinvenezuela.com?html=yes [&ltc=yes] [&msc=yes] [&rates=yes] [&coupons=yes]~~
 
-~~- Show Litecoin prices: &ltc=yes
+- ~~Show Litecoin prices: &ltc=yes~~
 
-~~- Show Mastercoin prices: &msc=yes
+- ~~Show Mastercoin prices: &msc=yes~~
 
-~~- Show exchange rates: &rates=yes
+- ~~Show exchange rates: &rates=yes~~
 
-~~- Show LocalBitcoins' coupons price: &coupons=yes
+- ~~Show LocalBitcoins' coupons price: &coupons=yes~~
 
 
 ### Calculator
@@ -100,16 +100,16 @@ Show the recorded prices for Bitcoin and Litecoin in USD, EUR, VEF and ARS.
 
 https://api.bitcoinvenezuela.com/historical/[?coin=_coin_][?pair=_pair_]
 
-Historical data can be filtered by coin: **BTC**, **LTC**, ~~**MSC**
+Historical data can be filtered by coin: **BTC**, **LTC**, ~~**MSC**~~
 
 Or to a specific pair of currencies: **BTCUSD**, **BTCEUR**, **BTCVEF**, **BTCARS**, **LTCUSD**, **LTCEUR**, **LTCVEF**, **LTCARS**, **LTCBTC**, ~~**MSCUSD**, **MSCEUR**, **MSCVEF**, **MSCARS**, **MSCBTC**
 
 
 ### ~~DolarToday
 
-~~Data taken from DolarToday.com can be accessed here
+~~Data taken from DolarToday.com can be accessed here~~
 
-~~https://api.bitcoinvenezuela.com/DolarToday.php?json=yes
+~~https://api.bitcoinvenezuela.com/DolarToday.php?json=yes~~
 
 
 # Donations

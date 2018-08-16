@@ -5,19 +5,19 @@ Bitcoin Venezuela API v2
 
 **Debe tener instalado y configurado:**
 
-- Nodejs
+* Nodejs
 
- - *Aquí una pequeña guía para la instalación y configuración para Digital Ocean Ubuntu:
+ * *Aquí una pequeña guía para la instalación y configuración para Digital Ocean Ubuntu:*
   https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04
 
-- Redis
+* Redis
 
- - *Aquí una pequeña guía para la instalación y configuración para Digital Ocean Ubuntu:
+ * *Aquí una pequeña guía para la instalación y configuración para Digital Ocean Ubuntu:*
   https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
-- Forever
+* Forever
  
- - *ejecute el comando `npm install forever`
+ * *ejecute el comando `npm install forever`*
 
 **Instalacion y ejecucion:**
 
@@ -30,7 +30,6 @@ Bitcoin Venezuela API v2
 - Done -> Solicite la https://addresserver:3000/coin desde cualquier navegador
 
 ## How to enable BTCVEF-only mode:
-===
 
 **You need to have installed and already set:**
 - Nodejs

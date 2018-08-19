@@ -13,7 +13,7 @@ Bitcoin Venezuela API v2
 * Redis
 
  * *Aquí una pequeña guía para la instalación y configuración para Digital Ocean Ubuntu:*
-  https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
+  https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04
 
 * Forever
  

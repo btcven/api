@@ -6,7 +6,7 @@
 const api = require('./app')
 const chalk = require('chalk')
 const scheduleCoin = require('./schedule/coin.schedule')
-const port = process.env.PORT || 9300
+const port = process.env.PORT || 3000
 // Conexion con redisDB
 require('./config/redis-db').initRedisDB
 .then((redisClient)=> scheduleCoin(redisClient))

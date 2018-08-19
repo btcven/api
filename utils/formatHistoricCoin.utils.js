@@ -1,147 +1,231 @@
 module.exports = historicCoin => {
-    let jsonVEF_BTC = {}
-    let jsonUSD_BTC = {}
-    let jsonGBP_BTC = {}
-    let jsonEUR_BTC = {}
-    let jsonXMR_BTC = {}
-    let jsonETH_BTC = {}
-    let jsonLTC_BTC = {}
-    let jsonVEF_LTC = {}
-    let jsonUSD_LTC = {}
-    let jsonGBP_LTC = {}
-    let jsonEUR_LTC = {}
-    let jsonXMR_LTC = {}
-    let jsonETH_LTC = {}
-    let jsonARS_LTC = {}
-    let jsonVEF_XMR = {}
-    let jsonUSD_XMR = {}
-    let jsonGBP_XMR = {}
-    let jsonEUR_XMR = {}
-    let jsonETH_XMR = {}
-    let jsonLTC_XMR = {}
-    let jsonARS_XMR = {}
-    let jsonVEF_ETH = {}
-    let jsonUSD_ETH = {}
-    let jsonGBP_ETH = {}
-    let jsonEUR_ETH = {}
-    let jsonXMR_ETH = {}
-    let jsonLTC_ETH = {}
-    let jsonARS_ETH = {}
+    let jsonBTCVEF = {}
+    let jsonBTCUSD = {}
+    let jsonBTCGBP = {}
+    let jsonBTCEUR = {}
+    let jsonBTCXMR = {}
+    let jsonBTCETH = {}
+    let jsonBTCLTC = {}
+    let jsonBTCARS = {}
+    let jsonLTCVEF = {}
+    let jsonLTCUSD = {}
+    let jsonLTCGBP = {}
+    let jsonLTCEUR = {}
+    let jsonLTCXMR = {}
+    let jsonLTCETH = {}
+    let jsonLTCARS = {}
+    let jsonLTCBTC = {}
+    let jsonXMRVEF = {}
+    let jsonXMRUSD = {}
+    let jsonXMRGBP = {}
+    let jsonXMREUR = {}
+    let jsonXMRETH = {}
+    let jsonXMRLTC = {}
+    let jsonXMRARS = {}
+    let jsonXMRBTC = {}
+    let jsonETHVEF = {}
+    let jsonETHUSD = {}
+    let jsonETHGBP = {}
+    let jsonETHEUR = {}
+    let jsonETHXMR = {}
+    let jsonETHLTC = {}
+    let jsonETHARS = {}
+    let jsonETHBTC = {}
     let historicresult = {}
     historicCoin.map( historic => {
         for (let propiedad in historic) {
             if (historic.hasOwnProperty(propiedad)) {
-                if (propiedad === 'VEF_BTC') {
-                    jsonVEF_BTC[historic.date] = historic.VEF_BTC
-                    historicresult.VEF_BTC = jsonVEF_BTC
+                if (propiedad === 'BTCVEF') {
+                    if (historic.BTCVEF) {
+                        jsonBTCVEF[historic.date] = historic.BTCVEF
+                        historicresult.VEF_BTC = jsonBTCVEF
+                    }
                 }
-                if (propiedad === 'USD_BTC') {
-                    jsonUSD_BTC[historic.date] = historic.USD_BTC
-                    historicresult.USD_BTC = jsonUSD_BTC
+                if (propiedad === 'BTCUSD') {
+                    if (historic.BTCUSD) {
+                        jsonBTCUSD[historic.date] = historic.BTCUSD
+                        historicresult.USD_BTC = jsonBTCUSD
+                    }
                 }
-                if (propiedad === 'GBP_BTC') {
-                    jsonGBP_BTC[historic.date] = historic.GBP_BTC
-                    historicresult.GBP_BTC = jsonGBP_BTC
+                if (propiedad === 'BTCGBP') {
+                    if (historic.BTCGBP) {
+                        jsonBTCGBP[historic.date] = historic.BTCGBP
+                        historicresult.GBP_BTC = jsonBTCGBP
+                    }
                 }
-                if (propiedad === 'EUR_BTC') {
-                    jsonEUR_BTC[historic.date] = historic.EUR_BTC
-                    historicresult.EUR_BTC = jsonEUR_BTC
+                if (propiedad === 'BTCEUR') {
+                    if (historic.BTCEUR) {
+                        jsonBTCEUR[historic.date] = historic.BTCEUR
+                        historicresult.EUR_BTC = jsonBTCEUR
+                    }
                 }
-                if (propiedad === 'XMR_BTC') {
-                    jsonXMR_BTC[historic.date] = historic.XMR_BTC
-                    historicresult.XMR_BTC = jsonXMR_BTC
+                if (propiedad === 'BTCXMR') {
+                    if (historic.BTCXMR) {
+                        jsonBTCXMR[historic.date] = historic.BTCXMR
+                        historicresult.XMR_BTC = jsonBTCXMR
+                    }
                 }
-                if (propiedad === 'ETH_BTC') {
-                    jsonETH_BTC[historic.date] = historic.ETH_BTC
-                    historicresult.ETH_BTC = jsonETH_BTC
+                if (propiedad === 'BTCETH') {
+                    if (historic.BTCETH) {
+                        jsonBTCETH[historic.date] = historic.BTCETH
+                        historicresult.ETH_BTC = jsonBTCETH
+                    }
                 }
-                if (propiedad === 'LTC_BTC') {
-                    jsonLTC_BTC[historic.date] = historic.LTC_BTC
-                    historicresult.LTC_BTC = jsonLTC_BTC
+                if (propiedad === 'BTCLTC') {
+                    if (historic.BTCLTC) {
+                        jsonBTCLTC[historic.date] = historic.BTCLTC
+                        historicresult.LTC_BTC = jsonBTCLTC
+                    }
                 }
-                if (propiedad === 'VEF_LTC') {
-                    jsonVEF_LTC[historic.date] = historic.VEF_LTC
-                    historicresult.VEF_LTC = jsonVEF_LTC
+                if (propiedad === 'BTCARS') {
+                    if (historic.BTCARS) {
+                        jsonBTCARS[historic.date] = historic.BTCARS
+                        historicresult.ARS_BTC = jsonBTCARS
+                    }
                 }
-                if (propiedad === 'USD_LTC') {
-                    jsonUSD_LTC[historic.date] = historic.USD_LTC
-                    historicresult.USD_LTC = jsonUSD_LTC
+                if (propiedad === 'LTCVEF') {
+                    if (historic.LTCVEF) {
+                        jsonLTCVEF[historic.date] = historic.LTCVEF
+                        historicresult.VEF_LTC = jsonLTCVEF
+                    }
                 }
-                if (propiedad === 'GBP_LTC') {
-                    jsonGBP_LTC[historic.date] = historic.GBP_LTC
-                    historicresult.GBP_LTC = jsonGBP_LTC
+                if (propiedad === 'LTCUSD') {
+                    if (historic.LTCUSD) {
+                        jsonLTCUSD[historic.date] = historic.LTCUSD
+                        historicresult.USD_LTC = jsonLTCUSD
+                    }
                 }
-                if (propiedad === 'EUR_LTC') {
-                    jsonEUR_LTC[historic.date] = historic.EUR_LTC
-                    historicresult.EUR_LTC = jsonEUR_LTC
+                if (propiedad === 'LTCGBP') {
+                    if (historic.LTCGBP) {
+                        jsonLTCGBP[historic.date] = historic.LTCGBP
+                        historicresult.GBP_LTC = jsonLTCGBP
+                    }
                 }
-                if (propiedad === 'XMR_LTC') {
-                    jsonXMR_LTC[historic.date] = historic.XMR_LTC
-                    historicresult.XMR_LTC = jsonXMR_LTC
+                if (propiedad === 'LTCEUR') {
+                    if (historic.LTCEUR) {
+                        jsonLTCEUR[historic.date] = historic.LTCEUR
+                        historicresult.EUR_LTC = jsonLTCEUR
+                    }
                 }
-                if (propiedad === 'ETH_LTC') {
-                    jsonETH_LTC[historic.date] = historic.ETH_LTC
-                    historicresult.ETH_LTC = jsonETH_LTC
+                if (propiedad === 'LTCXMR') {
+                    if (historic.LTCXMR) {
+                        jsonLTCXMR[historic.date] = historic.LTCXMR
+                        historicresult.XMR_LTC = jsonLTCXMR
+                    }
                 }
-                if (propiedad === 'ARS_LTC') {
-                    jsonARS_LTC[historic.date] = historic.ARS_LTC
-                    historicresult.ARS_LTC = jsonARS_LTC
+                if (propiedad === 'LTCETH') {
+                    if (historic.LTCETH) {
+                        jsonLTCETH[historic.date] = historic.LTCETH
+                        historicresult.ETH_LTC = jsonLTCETH
+                    }
                 }
-                if (propiedad === 'VEF_XMR') {
-                    jsonVEF_XMR[historic.date] = historic.VEF_XMR
-                    historicresult.VEF_XMR = jsonVEF_XMR
+                if (propiedad === 'LTCARS') {
+                    if (historic.LTCARS) {
+                        jsonLTCARS[historic.date] = historic.LTCARS
+                        historicresult.LTC_ARS = jsonLTCARS
+                    }
                 }
-                if (propiedad === 'USD_XMR') {
-                    jsonUSD_XMR[historic.date] = historic.USD_XMR
-                    historicresult.USD_XMR = jsonUSD_XMR
+                if (propiedad === 'LTCBTC') {
+                    if (historic.LTCBTC) {
+                        jsonLTCBTC[historic.date] = historic.LTCBTC
+                        historicresult.BTC_LTC = jsonLTCBTC
+                    }
                 }
-                if (propiedad === 'GBP_XMR') {
-                    jsonGBP_XMR[historic.date] = historic.GBP_XMR
-                    historicresult.GBP_XMR = jsonGBP_XMR
+                if (propiedad === 'XMRVEF') {
+                    if (historic.XMRVEF) {
+                        jsonXMRVEF[historic.date] = historic.XMRVEF
+                        historicresult.VEF_XMR = jsonXMRVEF
+                    }
                 }
-                if (propiedad === 'EUR_XMR') {
-                    jsonEUR_XMR[historic.date] = historic.EUR_XMR
-                    historicresult.EUR_XMR = jsonEUR_XMR
+                if (propiedad === 'XMRUSD') {
+                    if (historic.XMRUSD) {
+                        jsonXMRUSD[historic.date] = historic.XMRUSD
+                        historicresult.USD_XMR = jsonXMRUSD
+                    }
                 }
-                if (propiedad === 'ETH_XMR') {
-                    jsonETH_XMR[historic.date] = historic.ETH_XMR
-                    historicresult.ETH_XMR = jsonETH_XMR
+                if (propiedad === 'XMRGBP') {
+                    if (historic.XMRGBP) {
+                        jsonXMRGBP[historic.date] = historic.XMRGBP
+                        historicresult.GBP_XMR = jsonXMRGBP
+                    }
                 }
-                if (propiedad === 'LTC_XMR') {
-                    jsonLTC_XMR[historic.date] = historic.LTC_XMR
-                    historicresult.LTC_XMR = jsonLTC_XMR
+                if (propiedad === 'XMREUR') {
+                    if (historic.XMREUR) {
+                        jsonXMREUR[historic.date] = historic.XMREUR
+                        historicresult.EUR_XMR = jsonXMREUR
+                    }
                 }
-                if (propiedad === 'ARS_XMR') {
-                    jsonARS_XMR[historic.date] = historic.ARS_XMR
-                    historicresult.ARS_XMR = jsonARS_XMR
+                if (propiedad === 'XMRETH') {
+                    if (historic.XMRETH) {
+                        jsonXMRETH[historic.date] = historic.XMRETH
+                        historicresult.ETH_XMR = jsonXMRETH
+                    }
                 }
-                if (propiedad === 'VEF_ETH') {
-                    jsonVEF_ETH[historic.date] = historic.VEF_ETH
-                    historicresult.VEF_ETH = jsonVEF_ETH
+                if (propiedad === 'XMRLTC') {
+                    if (historic.XMRLTC) {
+                        jsonXMRLTC[historic.date] = historic.XMRLTC
+                        historicresult.LTC_XMR = jsonXMRLTC
+                    }
                 }
-                if (propiedad === 'USD_ETH') {
-                    jsonUSD_ETH[historic.date] = historic.USD_ETH
-                    historicresult.USD_ETH = jsonUSD_ETH
+                if (propiedad === 'XMRARS') {
+                    if (historic.XMRARS) {
+                        jsonXMRARS[historic.date] = historic.XMRARS
+                        historicresult.ARS_XMR = jsonXMRARS
+                    }
                 }
-                if (propiedad === 'GBP_ETH') {
-                    jsonGBP_ETH[historic.date] = historic.GBP_ETH
-                    historicresult.GBP_ETH = jsonGBP_ETH
+                if (propiedad === 'XMRBTC') {
+                    if (historic.XMRBTC) {
+                        jsonXMRBTC[historic.date] = historic.XMRBTC
+                        historicresult.BTC_XMR = jsonXMRBTC
+                    }
                 }
-                if (propiedad === 'EUR_ETH') {
-                    jsonEUR_ETH[historic.date] = historic.EUR_ETH
-                    historicresult.EUR_ETH = jsonEUR_ETH
+                if (propiedad === 'ETHVEF') {
+                    if (historic.ETHVEF) {
+                        jsonETHVEF[historic.date] = historic.ETHVEF
+                        historicresult.VEF_ETH = jsonETHVEF
+                    }
                 }
-                if (propiedad === 'XMR_ETH') {
-                    jsonXMR_ETH[historic.date] = historic.XMR_ETH
-                    historicresult.XMR_ETH = jsonXMR_ETH
+                if (propiedad === 'ETHUSD') {
+                    if (historic.ETHUSD) {
+                        jsonETHUSD[historic.date] = historic.ETHUSD
+                        historicresult.USD_ETH = jsonETHUSD
+                    }
                 }
-                if (propiedad === 'LTC_ETH') {
-                    jsonLTC_ETH[historic.date] = historic.LTC_ETH
-                    historicresult.LTC_ETH = jsonLTC_ETH
+                if (propiedad === 'ETHGBP') {
+                    if (historic.ETHGBP) {
+                        jsonETHGBP[historic.date] = historic.ETHGBP
+                        historicresult.GBP_ETH = jsonETHGBP
+                    }
                 }
-                if (propiedad === 'ARS_ETH') {
-                    jsonARS_ETH[historic.date] = historic.ARS_ETH
-                    historicresult.ARS_ETH = jsonARS_ETH
+                if (propiedad === 'ETHEUR') {
+                    if (historic.ETHEUR) {       
+                        jsonETHEUR[historic.date] = historic.ETHEUR
+                        historicresult.EUR_ETH = jsonETHEUR
+                    }
+                }
+                if (propiedad === 'ETHXMR') {
+                    if (historic.ETHXMR) {   
+                        jsonETHXMR[historic.date] = historic.ETHXMR
+                        historicresult.XMR_ETH = jsonETHXMR
+                    }
+                }
+                if (propiedad === 'ETHLTC') {
+                    if (historic.ETHLTC) {
+                        jsonETHLTC[historic.date] = historic.ETHLTC
+                        historicresult.LTC_ETH = jsonETHLTC
+                    }
+                }
+                if (propiedad === 'ETHARS') {
+                    if (historic.ETHARS) {
+                        jsonETHARS[historic.date] = historic.ETHARS
+                        historicresult.ARS_ETH = jsonETHARS
+                    }
+                }
+                if (propiedad === 'ETHBTC') {
+                    if (historic.ETHBTC) {
+                        jsonETHBTC[historic.date] = historic.ETHBTC
+                        historicresult.BTC_ETH = jsonETHBTC
+                    }
                 }
             }
         }

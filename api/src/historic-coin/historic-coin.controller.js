@@ -1,7 +1,6 @@
 'use strict'
 const chalk = require('chalk')
 const debug = require('debug')('btcven-api-v2:historic-coin')
-require('mongoose-pagination')
 const  jsonfile = require('jsonfile')
   const  historicCoinQuery = (req,res) => {
 

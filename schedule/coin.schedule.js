@@ -17,7 +17,7 @@ const workingEvery5min = async redisClient => {
         const coinvalue = await coinValue()
         if (coinvalue) {
             const getAsync = promisify(redisClient.hmset).bind(redisClient)
-            const reply = await getAsync("key",coinvalue)
+            const reply = await getAsync("jsonCoin",coinvalue)
             console.log(`${chalk.green('[btven-coin-schedule]')} set value ${reply}`)
         }
     } catch (error) {

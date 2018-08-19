@@ -6,7 +6,7 @@ const initRedisDB = new Promise((resolve, reject) =>{
         resolve(redisClient)
         console.log(`${chalk.green('[btven-api-v2]')} Conexion db Redis iniciada con exito!`)
         })
-    redisClient.on('error',() => {
+    redisClient.on('error',(error) => {
         console.log(`${chalk.red('Error in Redis')} ${error}`)
         reject(error)
     })

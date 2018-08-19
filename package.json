@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "set DEBUG=btcven-api-v2:* && nodemon index.js",
-    "start": "node index.js"
+    "start": "set DEBUG=btcven-api-v2:* && nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,6 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
-    "chmod": "^0.2.1",
     "cors": "^2.8.4",
     "debug": "^3.1.0",
     "express": "^4.16.3",
@@ -28,11 +27,11 @@
     "jsonfile": "^4.0.0",
     "moment-timezone": "^0.5.21",
     "mongoose": "^5.2.7",
-    "mongoose-pagination": "^1.0.0",
     "node-cron": "^1.2.1",
     "redis": "^2.8.0",
     "stats-lite": "^2.1.1",
-    "superagent": "^3.8.3"
+    "superagent": "^3.8.3",
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "nodemon": "^1.18.3"

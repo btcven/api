@@ -1,10 +1,9 @@
 'use strict'
-const historicCoinModel = require('../api/src/models/historic-coin.model')
+const historicCoinModel = require('../models/historic-coin.model')
 const formatHistoric = require('./formatHistoricCoin.utils')
 const jsonfile = require('jsonfile')
 const debug = require('debug')('btcven-api-v2:saveJsonFile-utils')
 const chalk = require('chalk')
-require('mongoose-pagination')
  async function historicCoinQuery(){
     try {
         const historicCoin = await historicCoinModel.find({},{_id:false,__v:false},{lean: true}).sort({date:1})

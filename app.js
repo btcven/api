@@ -16,8 +16,8 @@ app.use((req, res, next) => {
     next()
   })
 // cargar rutas 
-let coin_routes = require('./src/coin/coin.router')
-let historic_coin_routes = require('./src/historic-coin/historic-coin.router')
+let coin_routes = require('./api/src/coin/coin.router')
+let historic_coin_routes = require('./api/src/historic-coin/historic-coin.router')
 // ruta base
 app.use(coin_routes)
 app.use(historic_coin_routes)

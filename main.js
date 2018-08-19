@@ -3,7 +3,7 @@
     Only Service VEF_BTC */
 /* ---------------------------------------------------- */
 'use strict'
-const api = require('./api/app')
+const api = require('./app')
 const chalk = require('chalk')
 const scheduleCoin = require('./schedule/coin.schedule')
 const port = process.env.PORT || 3000

@@ -18,7 +18,7 @@ const btcVefPrice = async () => {
 }
  const  computeBTCPrice = (data) => {
    
-    const arrayVES = data.filter(([price, volume]) => price<1000000000)
+    const arrayVES = data.filter(([price, volume]) => price<100000000)
     const arrayVEF = data.filter(([price, volume]) => price>1000000000)
     const arrayResultVES = arrayVES.map(([price, volume]) => [price*100000,volume])
     const _data = arrayResultVES.concat(arrayVEF)

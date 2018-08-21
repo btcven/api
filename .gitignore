@@ -1,0 +1,5 @@
+# Dependency directories
+node_modules/
+# tmp
+historic.json
+# End of https://www.gitignore.io/api/node,linux,macos,windows

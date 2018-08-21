@@ -33,7 +33,7 @@ const btcVefPrice = async () => {
           accBtcVolume >= 1
             ? [accFiatVolume, accBtcVolume]
             : [accFiatVolume + currentFiatVolume, accBtcVolume + currentBtcVolume],
-      );
+      )
 
     return fiat / btc
   }

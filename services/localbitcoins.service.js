@@ -19,13 +19,22 @@ const btcVefPrice = async () => {
     }
 }
  const  computeBTCPrice = (ARR_VEF,ARR_VES) => {
-   
-    const arr_vef = ARR_VES.map(([price, volume]) => [price*100000,volume])
+    let ARR_DEF = 0
+    const arr_ves = ARR_VES.map(([price, volume]) => [price*100000,volume])
     const arrayVES = ARR_VEF.filter(([price, volume]) => price<100000000)
     const arrayVEF = ARR_VEF.filter(([price, volume]) => price>1000000000)
-    const arrayResultVES = arrayVES.map(([price, volume]) => [price*100000,volume])
-    const arr_ves = arrayResultVES.concat(arrayVEF)
-    const ARR_DEF = arr_ves.concat(arr_vef)
+    if (ARR_VEF) {
+        if (arrayVES) {
+          const arrayResultVES = arrayVES.map(([price, volume]) => [price*100000,volume])
+          const arrJoinVes = arrayResultVES.concat(arrayVEF)
+          ARR_DEF = arrJoinVes.concat(arr_ves)
+        }
+        else{
+          ARR_DEF = arr_ves.concat(arrayVEF)
+        }
+    } else {
+        ARR_DEF = ARR_VEF
+    }
     const floatData = ARR_DEF.map(([price, volume]) => [parseFloat(price), parseFloat(volume)])
     const percentile = stats.percentile(floatData.map(([price, volume]) => price), 0.075)
     const [fiat, btc] = floatData

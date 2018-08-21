@@ -26,7 +26,6 @@ const btcVefPrice = async () => {
     const arrayResultVES = arrayVES.map(([price, volume]) => [price*100000,volume])
     const arr_ves = arrayResultVES.concat(arrayVEF)
     const ARR_DEF = arr_ves.concat(arr_vef)
-    console.log(arr_ves,arr_ves)
     const floatData = ARR_DEF.map(([price, volume]) => [parseFloat(price), parseFloat(volume)])
     const percentile = stats.percentile(floatData.map(([price, volume]) => price), 0.075)
     const [fiat, btc] = floatData

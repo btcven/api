@@ -4,6 +4,11 @@ const formatHistoric = require('./formatHistoricCoin.utils')
 const jsonfile = require('jsonfile')
 const debug = require('debug')('btcven-api-v2:saveJsonFile-utils')
 const chalk = require('chalk')
+const fs = require('fs')
+const path = require('path')
+
+const HISTORIC_FILE = process.env.HISTORIC_FILE || 'historic.json'
+
  async function historicCoinQuery(){
     try {
         const historicCoin = await historicCoinModel.find({},{_id:false,__v:false},{lean: true}).sort({date:1})
@@ -17,13 +22,24 @@ const chalk = require('chalk')
     }
 }
 const savejsonfile = historicCoin => {
-    jsonfile.writeFile('historic.json', formatHistoric(historicCoin), err => {
+    ensureDirectoryExistence(HISTORIC_FILE)
+    jsonfile.writeFile(HISTORIC_FILE, formatHistoric(historicCoin), err => {
         if (err) {
             console.log("An error occured while writing JSON Object to File.")
         }else {
             console.log("JSON file has been saved.")
         }
     })
+}
+
+function ensureDirectoryExistence(filePath) {
+  const dirname = path.dirname(filePath);
+  if (fs.existsSync(dirname)) {
+    return true;
+  }
+
+  ensureDirectoryExistence(dirname);
+  fs.mkdirSync(dirname);
 }
 
 module.exports = historicCoinQuery

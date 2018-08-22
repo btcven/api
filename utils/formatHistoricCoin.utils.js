@@ -1,5 +1,6 @@
 module.exports = historicCoin => {
     let jsonBTCVEF = {}
+    let jsonBTCVES = {}
     let jsonBTCUSD = {}
     let jsonBTCGBP = {}
     let jsonBTCEUR = {}
@@ -8,6 +9,7 @@ module.exports = historicCoin => {
     let jsonBTCLTC = {}
     let jsonBTCARS = {}
     let jsonLTCVEF = {}
+    let jsonLTCVES = {}
     let jsonLTCUSD = {}
     let jsonLTCGBP = {}
     let jsonLTCEUR = {}
@@ -16,6 +18,7 @@ module.exports = historicCoin => {
     let jsonLTCARS = {}
     let jsonLTCBTC = {}
     let jsonXMRVEF = {}
+    let jsonXMRVES = {}
     let jsonXMRUSD = {}
     let jsonXMRGBP = {}
     let jsonXMREUR = {}
@@ -24,6 +27,7 @@ module.exports = historicCoin => {
     let jsonXMRARS = {}
     let jsonXMRBTC = {}
     let jsonETHVEF = {}
+    let jsonETHVES = {}
     let jsonETHUSD = {}
     let jsonETHGBP = {}
     let jsonETHEUR = {}
@@ -39,6 +43,12 @@ module.exports = historicCoin => {
                     if (historic.BTCVEF) {
                         jsonBTCVEF[historic.date] = historic.BTCVEF
                         historicresult.VEF_BTC = jsonBTCVEF
+                    }
+                }
+                if (propiedad === 'BTCVES') {
+                    if (historic.BTCVEF) {
+                        jsonBTCVES[historic.date] = historic.BTCVES
+                        historicresult.VES_BTC = jsonBTCVES
                     }
                 }
                 if (propiedad === 'BTCUSD') {
@@ -89,6 +99,12 @@ module.exports = historicCoin => {
                         historicresult.VEF_LTC = jsonLTCVEF
                     }
                 }
+                if (propiedad === 'LTCVES') {
+                    if (historic.LTCVES) {
+                        jsonLTCVES[historic.date] = historic.LTCVES
+                        historicresult.VES_LTC = jsonLTCVES
+                    }
+                }
                 if (propiedad === 'LTCUSD') {
                     if (historic.LTCUSD) {
                         jsonLTCUSD[historic.date] = historic.LTCUSD
@@ -137,6 +153,12 @@ module.exports = historicCoin => {
                         historicresult.VEF_XMR = jsonXMRVEF
                     }
                 }
+                if (propiedad === 'XMRVES') {
+                    if (historic.XMRVES) {
+                        jsonXMRVES[historic.date] = historic.XMRVES
+                        historicresult.VES_XMR = jsonXMRVES
+                    }
+                }
                 if (propiedad === 'XMRUSD') {
                     if (historic.XMRUSD) {
                         jsonXMRUSD[historic.date] = historic.XMRUSD
@@ -183,6 +205,12 @@ module.exports = historicCoin => {
                     if (historic.ETHVEF) {
                         jsonETHVEF[historic.date] = historic.ETHVEF
                         historicresult.VEF_ETH = jsonETHVEF
+                    }
+                }
+                if (propiedad === 'ETHVES') {
+                    if (historic.ETHVES) {
+                        jsonETHVES[historic.date] = historic.ETHVES
+                        historicresult.VES_ETH = jsonETHVES
                     }
                 }
                 if (propiedad === 'ETHUSD') {

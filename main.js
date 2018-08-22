@@ -1,6 +1,6 @@
 /* ---------------------------------------------------- */
     /* Utilice este archivo como arranque del Back-End para solo utilizar 
-    Only Service VEF_BTC */
+    Only Service VES_BTC */
 /* ---------------------------------------------------- */
 'use strict'
 const api = require('./app')

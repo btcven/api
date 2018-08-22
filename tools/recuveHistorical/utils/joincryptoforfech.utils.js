@@ -16,6 +16,12 @@ const joinCryptos =  (obj,objDB) => {
                 } else {
                     object.BTCVEF = ''
                 }
+                const btcves =  obj.arrayBTCVES.find(element => element.date == element_.date)
+                if (btcves) {
+                    object.BTCVES = btcves.BTCVES
+                } else {
+                    object.BTCVES = ''
+                }
                 const btcusd =  obj.arrayBTCUSD.find(element => element.date == element_.date)
                 if (btcusd) {
                     object.BTCUSD = btcusd.BTCUSD

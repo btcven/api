@@ -11,6 +11,9 @@ const historicCoinSchema = new Schema({
         type: Number,
         default: ''
       },
+      BTCVES: {
+        type: Number
+      },
       BTCUSD: {
         type: Number,
         default: ''
@@ -40,6 +43,10 @@ const historicCoinSchema = new Schema({
         default: ''
       },
       LTCVEF: {
+        type: Number,
+        default: ''
+      },
+      LTCVES: {
         type: Number,
         default: ''
       },
@@ -75,6 +82,10 @@ const historicCoinSchema = new Schema({
         type: Number,
         default: ''
       },
+      XMRVES: {
+        type: Number,
+        default: ''
+      },
       XMRUSD: {
         type: Number,
         default: ''
@@ -104,6 +115,10 @@ const historicCoinSchema = new Schema({
         default: ''
       },
       ETHVEF: {
+        type: Number,
+        default: ''
+      },
+      ETHVES: {
         type: Number,
         default: ''
       },

@@ -4,6 +4,7 @@ module.exports = reply => {
                      }, 
              'BTC':  {  
                         "VEF": Number(reply.BTCVEF),
+                        "VES": Number(reply.BTCVES),
                         "USD": Number(reply.BTCUSD),
                         "GBP": Number(reply.BTCGBP),
                         "EUR": Number(reply.BTCEUR),
@@ -14,6 +15,7 @@ module.exports = reply => {
                     },
             'LTC':  {   
                         "VEF": Number(reply.LTCVEF),
+                        "VES": Number(reply.LTCVES),
                         "USD": Number(reply.LTCUSD),
                         "GBP": Number(reply.LTCGBP),
                         "EUR": Number(reply.LTCEUR),
@@ -24,6 +26,7 @@ module.exports = reply => {
                     },
             'XMR':  {   
                         "VEF": Number(reply.XMRVEF),
+                        "VES": Number(reply.XMRVES),
                         "USD": Number(reply.XMRUSD),
                         "GBP": Number(reply.XMRGBP),
                         "EUR": Number(reply.XMREUR),
@@ -34,6 +37,7 @@ module.exports = reply => {
                     },
             'ETH':  {   
                         "VEF": Number(reply.ETHVEF),
+                        "VES": Number(reply.ETHVES),
                         "USD": Number(reply.ETHUSD),
                         "GBP": Number(reply.ETHGBP),
                         "EUR": Number(reply.ETHEUR),
@@ -45,9 +49,11 @@ module.exports = reply => {
   'exchange_rates': {   
                         "EUR_USD": Number(reply.USDEUR),
                         "VEF_USD": Number(reply.USDVEF),
+                        "VES_USD": Number(reply.USDVES),
                         "ARS_USD": Number(reply.USDARS),
                         "XVE_USD": Number(reply.USDXVE),
                         "XVE_EUR": Number(reply.EURXVE),
+                        "VES_EUR": Number(reply.EURVES),
                         "XAR_USD": Number(reply.USDXAR)
                     },
             }

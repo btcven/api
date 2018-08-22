@@ -13,6 +13,7 @@ const workingEveryhour = async () => {
         const historicCoinModel = new HistoricCoinModel()
         historicCoinModel.date =  m1.format("YYYY-MM-DD")
         historicCoinModel.BTCVEF = coinvalue.BTCVEF
+        historicCoinModel.BTCVES = coinvalue.BTCVES
         historicCoinModel.BTCUSD = coinvalue.BTCUSD
         historicCoinModel.BTCGBP = coinvalue.BTCGBP
         historicCoinModel.BTCEUR = coinvalue.BTCEUR
@@ -21,6 +22,7 @@ const workingEveryhour = async () => {
         historicCoinModel.BTCLTC = coinvalue.BTCLTC
         historicCoinModel.BTCARS = coinvalue.BTCARS
         historicCoinModel.LTCVEF = coinvalue.LTCVEF
+        historicCoinModel.LTCVES = coinvalue.LTCVES
         historicCoinModel.LTCUSD = coinvalue.LTCUSD
         historicCoinModel.LTCGBP = coinvalue.LTCGBP
         historicCoinModel.LTCEUR = coinvalue.LTCEUR
@@ -29,6 +31,7 @@ const workingEveryhour = async () => {
         historicCoinModel.LTCARS = coinvalue.LTCARS
         historicCoinModel.LTCBTC = coinvalue.LTCBTC
         historicCoinModel.XMRVEF = coinvalue.XMRVEF
+        historicCoinModel.XMRVES = coinvalue.XMRVES
         historicCoinModel.XMRUSD = coinvalue.XMRUSD
         historicCoinModel.XMRGBP = coinvalue.XMRGBP
         historicCoinModel.XMREUR = coinvalue.XMREUR
@@ -37,6 +40,7 @@ const workingEveryhour = async () => {
         historicCoinModel.XMRARS = coinvalue.XMRARS
         historicCoinModel.XMRBTC = coinvalue.XMRBTC
         historicCoinModel.ETHVEF = coinvalue.ETHVEF
+        historicCoinModel.ETHVES = coinvalue.ETHVES
         historicCoinModel.ETHUSD = coinvalue.ETHUSD
         historicCoinModel.ETHGBP = coinvalue.ETHGBP
         historicCoinModel.ETHEUR = coinvalue.ETHEUR
@@ -46,6 +50,7 @@ const workingEveryhour = async () => {
         historicCoinModel.ETHBTC = coinvalue.ETHBTC
         const historicSaveResult = await historicCoinModel.save()
         if (historicSaveResult) {
+            console.log(historicSaveResult)
             console.log(`${chalk.green('[btven-coin-schedule]')} save succesfull historic ${m1}`)
             savejsonfile()
         } else {

@@ -2,6 +2,6 @@
 const express = require('express');
 const api = express.Router()
 const coinController = require('./coin.controller')
-api.get('/',coinController)
+api.get('/coin',coinController)
 
 module.exports = api

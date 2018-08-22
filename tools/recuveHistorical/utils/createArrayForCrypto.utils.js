@@ -1,5 +1,6 @@
 const createArrayForCrypto = obj => {
     let arrayBTCVEF = []
+    let arrayBTCVES = []
     let arrayBTCUSD = []
     let arrayBTCGBP = []
     let arrayBTCEUR = []
@@ -8,6 +9,7 @@ const createArrayForCrypto = obj => {
     let arrayBTCLTC = []
     let arrayBTCARS = []
     let arrayLTCVEF = []
+    let arrayLTCVES = []
     let arrayLTCUSD = []
     let arrayLTCGBP = []
     let arrayLTCEUR = []
@@ -16,6 +18,7 @@ const createArrayForCrypto = obj => {
     let arrayLTCARS = []
     let arrayLTCBTC = []
     let arrayXMRVEF = []
+    let arrayXMRVES = []
     let arrayXMRUSD = []
     let arrayXMRGBP = []
     let arrayXMREUR = []
@@ -24,6 +27,7 @@ const createArrayForCrypto = obj => {
     let arrayXMRARS = []
     let arrayXMRBTC = []
     let arrayETHVEF = []
+    let arrayETHVES = []
     let arrayETHUSD = []
     let arrayETHGBP = []
     let arrayETHEUR = []
@@ -39,6 +43,14 @@ const createArrayForCrypto = obj => {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
                         arrayBTCVEF.push({'BTCVEF':Number(valor),date:key})
+                    }
+                }
+            }
+            if (key === 'VES_BTC') {
+                for (const key in element) {
+                    if (element.hasOwnProperty(key)) {
+                        const valor = element[key]
+                        arrayBTCVES.push({'BTCVES':Number(valor),date:key})
                     }
                 }
             }
@@ -106,6 +118,14 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
+            if (key === 'VES_LTC') {
+                for (const key in element) {
+                    if (element.hasOwnProperty(key)) {
+                        const valor = element[key]
+                        arrayLTCVES.push({'LTCVES':Number(valor),date:key})
+                    }
+                }
+            }
             if (key === 'USD_LTC') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
@@ -170,6 +190,14 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
+            if (key === 'VES_XMR') {
+                for (const key in element) {
+                    if (element.hasOwnProperty(key)) {
+                        const valor = element[key]
+                        arrayXMRVES.push({'XMRVES':Number(valor),date:key})
+                    }
+                }
+            }
             if (key === 'USD_XMR') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
@@ -226,11 +254,11 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'VEF_ETH') {
+            if (key === 'VES_ETH') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
-                        arrayETHVEF.push({'ETHVEF':Number(valor),date:key})
+                        arrayETHVES.push({'ETHVES':Number(valor),date:key})
                     }
                 }
             }
@@ -295,6 +323,7 @@ const createArrayForCrypto = obj => {
     
     return {
         arrayBTCVEF,
+        arrayBTCVES,
         arrayBTCUSD,
         arrayBTCGBP,
         arrayBTCEUR,
@@ -303,6 +332,7 @@ const createArrayForCrypto = obj => {
         arrayBTCLTC,
         arrayBTCARS,
         arrayLTCVEF,
+        arrayLTCVES,
         arrayLTCUSD,
         arrayLTCGBP,
         arrayLTCEUR,
@@ -311,6 +341,7 @@ const createArrayForCrypto = obj => {
         arrayLTCARS,
         arrayLTCBTC,
         arrayXMRVEF,
+        arrayXMRVES,
         arrayXMRUSD,
         arrayXMRGBP,
         arrayXMREUR,
@@ -319,6 +350,7 @@ const createArrayForCrypto = obj => {
         arrayXMRARS,
         arrayXMRBTC,
         arrayETHVEF,
+        arrayETHVES,
         arrayETHUSD,
         arrayETHGBP,
         arrayETHEUR,

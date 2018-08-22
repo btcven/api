@@ -1,7 +1,7 @@
 Bitcoin Venezuela API v2
 ===
 
-## Cómo instalar la versión sólo BTCVEF:
+## Cómo instalar la versión sólo BTCVES:
 
 **Debe tener instalado y configurado:**
 
@@ -29,7 +29,7 @@ Bitcoin Venezuela API v2
 - Ejecute el comando -> "forever start main.js" y "forever stop main.js" para detener
 - Done -> Solicite la https://addresserver:3000/coin desde cualquier navegador
 
-## How to enable BTCVEF-only mode:
+## How to enable BTCVES-only mode:
 
 **You need to have installed and already set:**
 - Nodejs

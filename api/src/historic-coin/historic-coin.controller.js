@@ -35,6 +35,6 @@ const  filterHistoric = (object,coin,pair) => {
     }
     return objectRes
 }
-const changePair = pair =>{return `${pair.substr(pair.length - 3)}_${pair.substr(0,3)}`}
+const changePair = pair =>{return `${pair.substr(pair.length-3)}_${pair.substr(0,3)}`}
 
 module.exports = historicCoinQuery

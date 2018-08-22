@@ -24,7 +24,7 @@ const  filterHistoric = (object,coin,pair) => {
             }
         }
     }
-    if (changePair(pair)) {
+    if (pair) {
         for (const key in object) {
             if (object.hasOwnProperty(key)) {
                 if (key.search(changePair(pair))>-1) {

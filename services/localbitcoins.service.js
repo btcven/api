@@ -20,7 +20,7 @@ const btcVefPrice = async () => {
 }
  const  computeBTCPrice = (ARR_VEF,ARR_VES) => {
     let ARR_DEF = 0
-    const ves_filter = ARR_VEF.filter(([price, volume]) => price<100000000)
+    const ves_filter = ARR_VES.filter(([price, volume]) => price<100000000)
     const arr_ves = ves_filter.map(([price, volume]) => [price*100000,volume])
     const arrayVES = ARR_VEF.filter(([price, volume]) => price<100000000)
     const arrayVEF = ARR_VEF.filter(([price, volume]) => price>1000000000)

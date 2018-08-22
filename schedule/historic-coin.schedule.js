@@ -50,7 +50,6 @@ const workingEveryhour = async () => {
         historicCoinModel.ETHBTC = coinvalue.ETHBTC
         const historicSaveResult = await historicCoinModel.save()
         if (historicSaveResult) {
-            console.log(historicSaveResult)
             console.log(`${chalk.green('[btven-coin-schedule]')} save succesfull historic ${m1}`)
             savejsonfile()
         } else {

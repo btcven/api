@@ -18,7 +18,7 @@ const  filterHistoric = (object,coin,pair) => {
     if (coin) {
         for (const key in object) {
             if (object.hasOwnProperty(key)) {
-                if (key.search(coin)>0) {
+                if (key.search(coin.toUpperCase())>0) {
                     objectRes[key] = object[key]
                 }
             }
@@ -35,6 +35,6 @@ const  filterHistoric = (object,coin,pair) => {
     }
     return objectRes
 }
-const changePair = pair =>{return `${pair.substr(pair.length-3)}_${pair.substr(0,3)}`}
+const changePair = pair =>{return `${pair.substr(pair.length-3)}_${pair.substr(0,3)}`.toUpperCase()}
 
 module.exports = historicCoinQuery

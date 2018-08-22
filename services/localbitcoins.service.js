@@ -3,6 +3,7 @@ const superagent = require('superagent')
 const stats = require('stats-lite')
 const chalk = require('chalk')
 const debug = require('debug')('btcven-api-v2:btc-vef-service')
+// const jsonfile = require('jsonfile')
 const btcVefPrice = async () => {
     try {
         const BTC_VEF = await superagent.get('https://localbitcoins.com/bitcoincharts/VEF/orderbook.json')
@@ -21,12 +22,12 @@ const btcVefPrice = async () => {
  const  computeBTCPrice = (ARR_VEF,ARR_VES) => {
     let ARR_DEF = 0
     const ves_filter = ARR_VES.filter(([price, volume]) => price<100000000)
-    const arr_ves = ves_filter.map(([price, volume]) => [price*100000,volume])
+    const arr_ves = ves_filter.map(([price, volume]) => [price*100000,volume*100000])
     const arrayVES = ARR_VEF.filter(([price, volume]) => price<100000000)
     const arrayVEF = ARR_VEF.filter(([price, volume]) => price>1000000000)
     if (ARR_VEF) {
         if (arrayVES) {
-          const arrayResultVES = arrayVES.map(([price, volume]) => [price*100000,volume])
+          const arrayResultVES = arrayVES.map(([price, volume]) => [price*100000,volume*100000])
           const arrJoinVes = arrayResultVES.concat(arrayVEF)
           ARR_DEF = arrJoinVes.concat(arr_ves)
         }
@@ -36,6 +37,17 @@ const btcVefPrice = async () => {
     } else {
         ARR_DEF = ARR_VES
     }
+
+    
+    /* jsonfile.writeFile('report.json', ARR_DEF , err => {
+      if (err) {
+          console.log("An error occured while writing JSON Object to File.")
+      }else {
+          console.log("JSON file has been saved.")
+      }
+    }) */
+
+
     const floatData = ARR_DEF.map(([price, volume]) => [parseFloat(price), parseFloat(volume)])
     const percentile = stats.percentile(floatData.map(([price, volume]) => price), 0.075)
     const [fiat, btc] = floatData
@@ -48,6 +60,7 @@ const btcVefPrice = async () => {
             ? [accFiatVolume, accBtcVolume]
             : [accFiatVolume + currentFiatVolume, accBtcVolume + currentBtcVolume],
       )
+      console.log(fiat/btc)
     return {
       BTCVEF : fiat/btc,
       BTCVES : (fiat/btc)/100000

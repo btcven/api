@@ -56,6 +56,7 @@ module.exports = (btcVefVES,UsdEurGbp,XMR,ETH,LTC,ARS,UsdEur) =>{
     object.XMRLTC = btcltc*onlyXmr
     object.XMRARS = btcars*onlyXmr
     object.XMRBTC = onlyXmr
+    object.ETHVEF = btcvef*onlyEth
     object.ETHVES = btcves*onlyEth
     object.ETHUSD = btcusd*onlyEth
     object.ETHGBP = btcgbp*onlyEth

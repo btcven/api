@@ -3,7 +3,7 @@ const superagent = require('superagent')
 const stats = require('stats-lite')
 const chalk = require('chalk')
 const debug = require('debug')('btcven-api-v2:btc-vef-service')
-// const jsonfile = require('jsonfile')
+const jsonfile = require('jsonfile')
 const btcVefPrice = async () => {
     try {
         const BTC_VEF = await superagent.get('https://localbitcoins.com/bitcoincharts/VEF/orderbook.json')
@@ -50,7 +50,7 @@ const btcVefPrice = async () => {
 
     const floatData = ARR_DEF.map(([price, volume]) => [parseFloat(price), parseFloat(volume)])
     const percentile = stats.percentile(floatData.map(([price, volume]) => price), 0.075)
-    const [fiat, btc] = floatData
+    const /* arrPorcentile */[fiat, btc] = floatData
       .filter(([price, volume]) => volume / price >= 0.00001)
       .filter(([price, volume]) => price >= percentile)
       .map(([price, volume]) => [volume, volume / price])
@@ -60,11 +60,19 @@ const btcVefPrice = async () => {
             ? [accFiatVolume, accBtcVolume]
             : [accFiatVolume + currentFiatVolume, accBtcVolume + currentBtcVolume],
       )
-      console.log(fiat/btc)
     return {
       BTCVEF : fiat/btc,
       BTCVES : (fiat/btc)/100000
     }
+
+
+    /* jsonfile.writeFile('reportPorcentile.json', arrPorcentile , err => {
+      if (err) {
+          console.log("An error occured while writing JSON Object to File.")
+      }else {
+          console.log("JSON file has been saved.")
+      }
+    }) */
   }
 
 module.exports = btcVefPrice

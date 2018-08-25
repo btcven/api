@@ -1,5 +1,6 @@
 module.exports = historicCoin => {
     let jsonBTCVES = {}
+    let jsonBTCVEF = {}
     let jsonBTCUSD = {}
     let jsonBTCGBP = {}
     let jsonBTCEUR = {}

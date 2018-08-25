@@ -36,9 +36,9 @@ module.exports = historicCoin => {
         for (let propiedad in historic) {
             if (historic.hasOwnProperty(propiedad)) {
                 if (propiedad === 'BTCVES') {
-                    if (historic.BTCVEF) {
+                    if (historic.BTCVES) {
                         jsonBTCVES[historic.date] = historic.BTCVES
-                        historicresult.BTCVEF = jsonBTCVES
+                        historicresult.BTCVES = jsonBTCVES
                     }
                 }
                 if (propiedad === 'BTCUSD') {

@@ -1,3 +1,3 @@
 {   
-    "ignore": ["historic.json", "README"] 
+    "ignore": ["historic.json","historicV2.json", "README"] 
 }

@@ -2,4 +2,5 @@
 node_modules/
 # tmp
 historic.json
+historicV2.json
 # End of https://www.gitignore.io/api/node,linux,macos,windows

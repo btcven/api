@@ -1,4 +1,4 @@
-const calculator = (json,currency,amount,to) => {
+const calculator = (json,currency,amount,to,version) => {
     let res = null
     let booleanType = true
     let number = 0
@@ -6,7 +6,7 @@ const calculator = (json,currency,amount,to) => {
     let dataValid = false
     
     if (currency=='VEF'||currency=='VES'||currency=='USD'||currency=='GBP'||currency=='EUR'||currency=='ARS') {
-        if (!to) 
+        if (!to)
             aux = 'BTC'
         else
             aux = to
@@ -14,8 +14,11 @@ const calculator = (json,currency,amount,to) => {
         currency = aux
         booleanType = false
     }
-    if (!to) {
-        to = 'VEF'
+    if (!to){
+        if (version)
+            to = 'VES'
+        else
+            to = 'VEF'
     }
     for (const key in json) {
         if (json.hasOwnProperty(key)) {

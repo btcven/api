@@ -47,7 +47,7 @@ module.exports = historicCoin => {
                 }
                 if (propiedad === 'BTCVEF') {
                     if (historic.BTCVEF) {
-                        jsonLTCVEF[historic.date] = historic.BTCVEF
+                        jsonBTCVEF[historic.date] = historic.BTCVEF
                         historicresult.BTCVEF = jsonBTCVEF
                     }
                 }

@@ -64,7 +64,7 @@ module.exports = historicCoin => {
                 if (propiedad === 'LTCARS') {
                     if (historic.LTCARS) {
                         jsonLTCARS[historic.date] = historic.LTCARS
-                        historicresult.LTC_ARS = jsonLTCARS
+                        historicresult.ARS_LTC = jsonLTCARS
                     }
                 }
                 if (propiedad === 'LTCBTC') {

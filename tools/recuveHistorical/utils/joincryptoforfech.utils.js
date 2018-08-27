@@ -44,19 +44,19 @@ const joinCryptos =  (obj,objDB) => {
                 if (btcxmr) {
                     object.BTCXMR = btcxmr.BTCXMR
                 } else {
-                    object.BTCEUR = ''
+                    object.BTCXMR = ''
                 }
                 const btceth =  obj.arrayBTCETH.find(element => element.date == element_.date)
                 if (btceth) {
                     object.BTCETH = btceth.BTCETH
                 } else {
-                    object.BTCEUR = ''
+                    object.BTCETH = ''
                 }
                 const btcltc =  obj.arrayBTCLTC.find(element => element.date == element_.date)
                 if (btcltc) {
-                    object.arrayBTCLTC = btcltc.arrayBTCLTC
+                    object.BTCLTC = btcltc.BTCLTC
                 } else {
-                    object.BTCEUR = ''
+                    object.BTCLTC = ''
                 }
                 const btcars =  obj.arrayBTCARS.find(element => element.date == element_.date)
                 if (btcars) {
@@ -68,19 +68,19 @@ const joinCryptos =  (obj,objDB) => {
                 if (ltcvef) {
                     object.LTCVEF = ltcvef.LTCVEF
                 } else {
-                    object.LTCARS = ''
+                    object.LTCVEF = ''
                 }
                 const ltcusd =  obj.arrayLTCUSD.find(element => element.date == element_.date)
                 if (ltcusd) {
                     object.LTCUSD = ltcusd.LTCUSD
                 } else {
-                    object.LTCARS = ''
+                    object.LTCUSD = ''
                 }
                 const ltcgbp =  obj.arrayLTCGBP.find(element => element.date == element_.date)
                 if (ltcgbp) {
                     object.LTCGBP = ltcgbp.LTCGBP
                 } else {
-                    object.LTCARS = ''
+                    object.LTCGBP = ''
                 }
                 const ltceur =  obj.arrayLTCEUR.find(element => element.date == element_.date)
                 if (ltceur) {
@@ -92,13 +92,13 @@ const joinCryptos =  (obj,objDB) => {
                 if (ltcxmr) {
                     object.LTCXMR = ltcxmr.LTCXMR
                 } else {
-                    object.LTCEUR = ''
+                    object.LTCXMR = ''
                 }
                 const ltceth =  obj.arrayLTCETH.find(element => element.date == element_.date)
                 if (ltceth) {
-                    object.yLTCETH = ltceth.yLTCETH
+                    object.LTCETH = ltceth.LTCETH
                 } else {
-                    object.LTCEUR = ''
+                    object.LTCETH = ''
                 }
                 const ltcars =  obj.arrayLTCARS.find(element => element.date == element_.date)
                 if (ltcars) {
@@ -116,7 +116,7 @@ const joinCryptos =  (obj,objDB) => {
                 if (xmrvef) {
                     object.XMRVEF = xmrvef.XMRVEF
                 } else {
-                    object.LTCUSD = ''
+                    object.XMRVEF = ''
                 }
                 const xmrusd =  obj.arrayXMRUSD.find(element => element.date == element_.date)
                 if (xmrusd) {

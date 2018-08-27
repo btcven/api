@@ -38,7 +38,7 @@ const createArrayForCrypto = obj => {
     for (const key in obj) {
         if (obj.hasOwnProperty(key)) {
             const element = obj[key]
-            if (key === 'VEF_BTC') {
+            if (key === 'BTCVEF') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -46,7 +46,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'VES_BTC') {
+            if (key === 'BTCVES') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -54,7 +54,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'USD_BTC') {
+            if (key === 'BTCUSD') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -62,7 +62,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'GBP_BTC') {
+            if (key === 'BTCGBP') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -70,7 +70,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'XMR_BTC') {
+            if (key === 'BTCXMR') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -78,7 +78,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'ETH_BTC') {
+            if (key === 'BTCETH') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -86,7 +86,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'LTC_BTC') {
+            if (key === 'BTCLTC') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -94,7 +94,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'EUR_BTC') {
+            if (key === 'BTCEUR') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -102,7 +102,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'ARS_BTC') {
+            if (key === 'BTCARS') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -110,7 +110,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'VEF_LTC') {
+            if (key === 'LTCVEF') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -118,7 +118,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'VES_LTC') {
+            if (key === 'LTCVES') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -126,7 +126,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'USD_LTC') {
+            if (key === 'LTCUSD') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -134,7 +134,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'GBP_LTC') {
+            if (key === 'LTCGBP') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -142,7 +142,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'EUR_LTC') {
+            if (key === 'LTCEUR') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -150,7 +150,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'XMR_LTC') {
+            if (key === 'LTCXMR') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -158,7 +158,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'ETH_LTC') {
+            if (key === 'LTCETH') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -166,7 +166,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'ARS_LTC') {
+            if (key === 'LTCARS') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -174,7 +174,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'BTC_LTC') {
+            if (key === 'LTCBTC') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -182,7 +182,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'VEF_XMR') {
+            if (key === 'XMRVEF') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -190,7 +190,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'VES_XMR') {
+            if (key === 'XMRVES') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -198,7 +198,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'USD_XMR') {
+            if (key === 'XMRUSD') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -206,7 +206,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'GBP_XMR') {
+            if (key === 'XMRGBP') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -214,7 +214,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'EUR_XMR') {
+            if (key === 'XMREUR') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -222,7 +222,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'ETH_XMR') {
+            if (key === 'XMRETH') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -230,7 +230,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'LTC_XMR') {
+            if (key === 'XMRLTC') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -238,7 +238,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'ARS_XMR') {
+            if (key === 'XMRARS') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -246,7 +246,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'BTC_XMR') {
+            if (key === 'XMRBTC') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -254,7 +254,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'VES_ETH') {
+            if (key === 'ETHVES') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -262,7 +262,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'USD_ETH') {
+            if (key === 'ETHUSD') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -270,7 +270,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'GBP_ETH') {
+            if (key === 'ETHGBP') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -278,7 +278,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'EUR_ETH') {
+            if (key === 'ETHEUR') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -286,7 +286,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'XMR_ETH') {
+            if (key === 'ETHXMR') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -294,7 +294,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'LTC_ETH') {
+            if (key === 'ETHLTC') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -302,7 +302,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'ARS_ETH') {
+            if (key === 'ETHARS') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]
@@ -310,7 +310,7 @@ const createArrayForCrypto = obj => {
                     }
                 }
             }
-            if (key === 'BTC_ETH') {
+            if (key === 'ETHBTC') {
                 for (const key in element) {
                     if (element.hasOwnProperty(key)) {
                         const valor = element[key]

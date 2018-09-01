@@ -27,7 +27,7 @@ Bitcoin Venezuela API v2
 - Ubiquese en la capeta -> "api"
 - Ejecute el comando -> "npm install"
 - Ejecute el comando -> "forever start main.js" y "forever stop main.js" para detener
-- Done -> Solicite la https://addresserver:3000/coin desde cualquier navegador
+- Done -> Solicite la http://addresserver:3000 desde cualquier navegador
 
 ## How to enable BTCVES-only mode:
 
@@ -45,7 +45,7 @@ Bitcoin Venezuela API v2
 - Go to the directory -> "api"
 - Run the command -> "npm install"
 - Run the command -> "forever start main.js" and "forever stop main.js" to stop it
-- Done -> You can visit https://addresserver:3000/coin from any browser
+- Done -> You can visit http://addresserver:3000 from any browser
 
 
 Bitcoin Venezuela API *(v1)*

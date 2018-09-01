@@ -22,7 +22,7 @@ Bitcoin Venezuela API v2
 **Para usar Docker en cojunto con docker-compose.yml**
 
 - [Tener instalado Docker](https://docs.docker.com/install/)
-- [Contar con CLI de Dokcer Compose](https://docs.docker.com/compose/install/)
+- [Contar con CLI de Docker Compose](https://docs.docker.com/compose/install/)
 
 ```
 git clone https://github.com/btcven/api

@@ -19,6 +19,22 @@ Bitcoin Venezuela API v2
  
  * *ejecute el comando `npm install forever`*
 
+**Para usar Docker en cojunto con docker-compose.yml
+
+- [Tener instalado Docker](https://docs.docker.com/install/)
+- [Contar con CLI de Dokcer Compose](https://docs.docker.com/compose/install/)
+
+```
+git clone https://github.com/btcven/api
+cd api
+docker-compose up -d
+```
+
+Con tu navegador vas a poder acceder a la API a través del puerto 3000
+
+http://localhost:3000
+
+
 **Instalacion y ejecucion:**
 
 - Open Port 3000

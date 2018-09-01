@@ -32,16 +32,15 @@ const calculator = (json,currency,amount,to,version) => {
                                 number =  amount * object[key]
                             else
                                 number =  amount / object[key]
-                                res = truncate(number)
+                            res = truncate(number)
                         }
                     }
                 }
             }
         }
     }
-    if (!dataValid) {
+    if (!dataValid)
         res = '0.00000000'
-    }
     return res
 }
 const truncate = num => num.toString().match(/^-?\d+(?:\.\d{0,8})?/)[0]

@@ -42,14 +42,14 @@ module.exports = reply => {
                         "ARS": Number(reply.ETHARS),
                         "BTC": Number(reply.ETHBTC)
                     },
-  'exchange_rates': {   
-                        "EUR_USD": Number(reply.USDEUR),
-                        "VES_USD": Number(reply.USDVES),
-                        "ARS_USD": Number(reply.USDARS),
-                        "XVE_USD": Number(reply.USDXVE),
-                        "XVE_EUR": Number(reply.EURXVE),
-                        "VES_EUR": Number(reply.EURVES),
-                        "XAR_USD": Number(reply.USDXAR)
+  'exchange_rates': { 
+                        "USDEUR": Number(reply.USDEUR),
+                        "USDVES": Number(reply.USDVES),
+                        "USDARS": Number(reply.USDARS),
+                        "USDXVE": Number(reply.USDXVE),
+                        "EURXVE": Number(reply.EURXVE),
+                        "EURVES": Number(reply.EURVES),
+                        "USDXAR": Number(reply.USDXAR)
                     },
             }
 }

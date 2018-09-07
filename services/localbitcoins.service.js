@@ -6,12 +6,12 @@ const debug = require('debug')('btcven-api-v2:btc-vef-service')
 const jsonfile = require('jsonfile')
 const btcVefPrice = async () => {
     try {
-        const BTC_VEF = await superagent.get('https://localbitcoins.com/bitcoincharts/VEF/orderbook.json')
+        // const BTC_VEF = await superagent.get('https://localbitcoins.com/bitcoincharts/VEF/orderbook.json')
         const BTC_VES = await superagent.get('https://localbitcoins.com/bitcoincharts/VES/orderbook.json')
-        const { asks : ARR_VEF } = BTC_VEF.body
+        // const { asks : ARR_VEF } = BTC_VEF.body
         const { asks : ARR_VES } = BTC_VES.body
-        if (ARR_VEF && ARR_VES) {
-          return computeBTCPrice(ARR_VEF,ARR_VES)
+        if (/* ARR_VEF &&  */ARR_VES) {
+          return computeBTCPrice(/* ARR_VEF, */ARR_VES)
         }
     } catch (error) {
         console.log(`${chalk.red('[fatal error]')} Localbtc ${error}`)
@@ -19,10 +19,10 @@ const btcVefPrice = async () => {
         throw Error(`Error: ${error}`)
     }
 }
- const  computeBTCPrice = (ARR_VEF,ARR_VES) => {
+ const  computeBTCPrice = (/* ARR_VEF, */ARR_VES) => {
     let ARR_DEF = 0
     const ves_filter = ARR_VES.filter(([price, volume]) => price<100000000)
-    const arr_ves = ves_filter.map(([price, volume]) => [price*100000,volume*100000])
+    /* const arr_ves = ves_filter.map(([price, volume]) => [price*100000,volume*100000])
     const arrayVES = ARR_VEF.filter(([price, volume]) => price<100000000)
     const arrayVEF = ARR_VEF.filter(([price, volume]) => price>1000000000)
     if (ARR_VEF) {
@@ -37,7 +37,7 @@ const btcVefPrice = async () => {
     } else {
         ARR_DEF = ARR_VES
     }
-
+ */
     
     /* jsonfile.writeFile('report.json', ARR_DEF , err => {
       if (err) {
@@ -48,7 +48,7 @@ const btcVefPrice = async () => {
     }) */
 
 
-    const floatData = ARR_DEF.map(([price, volume]) => [parseFloat(price), parseFloat(volume)])
+    const floatData = ves_filter.map(([price, volume]) => [parseFloat(price), parseFloat(volume)])
     const percentile = stats.percentile(floatData.map(([price, volume]) => price), 0.075)
     const /* arrPorcentile */[fiat, btc] = floatData
       .filter(([price, volume]) => volume / price >= 0.00001)
@@ -60,9 +60,10 @@ const btcVefPrice = async () => {
             ? [accFiatVolume, accBtcVolume]
             : [accFiatVolume + currentFiatVolume, accBtcVolume + currentBtcVolume],
       )
+      console.log(fiat/btc)
     return {
-      BTCVEF : fiat/btc,
-      BTCVES : (fiat/btc)/100000
+      BTCVES : fiat/btc,
+      BTCVEF : (fiat/btc)*100000
     }
 
 

@@ -1,0 +1,32 @@
+version: "3.1"
+services:
+  mongo:
+    image: mongo:3.2.11
+    volumes:
+      - /data/db/mongo
+    ports:
+      - "27017:27017"
+    #network_mode: "host"
+  redis:
+    image: redis
+    volumes:
+      - /data/db/redis
+    ports:
+      - "6379:6379"
+    #network_mode: "host"
+  btcven-api:
+    container_name: btcven-api
+    image: jazb/btcven-api
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - MONGO_URI=mongodb://mongo:27017/btcven
+    ports:
+      - "3000:3000"
+    #network_mode: "host"
+    depends_on:
+      - mongo
+      - redis

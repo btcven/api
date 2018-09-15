@@ -32,7 +32,11 @@ const calculator = (json,currency,amount,to,version) => {
                                 number =  amount * object[key]
                             else
                                 number =  amount / object[key]
-                            res = truncate(number)
+                            if (number.toString().search("e")>-1)
+                                dataValid = false
+                            else 
+                                res = truncate(number)
+                            console.log(number.toString().search("e"))
                         }
                     }
                 }

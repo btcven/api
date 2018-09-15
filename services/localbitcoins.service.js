@@ -60,7 +60,6 @@ const btcVefPrice = async () => {
             ? [accFiatVolume, accBtcVolume]
             : [accFiatVolume + currentFiatVolume, accBtcVolume + currentBtcVolume],
       )
-      console.log(fiat/btc)
     return {
       BTCVES : fiat/btc,
       BTCVEF : (fiat/btc)*100000

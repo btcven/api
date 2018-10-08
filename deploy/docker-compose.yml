@@ -1,0 +1,37 @@
+version: '2'
+services:
+  mongo-express:
+    image: mongo-express
+    stdin_open: true
+    tty: true
+    links:
+    - mongodb:mongo
+    labels:
+      io.rancher.container.pull_image: always
+  btcven-api:
+    image: jazb/btcven-api
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/btcven
+      REDIS_HOST: redis
+      REDIS_PORT: '6379'
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  mongodb:
+    image: mongo
+    stdin_open: true
+    volumes:
+    - /data/mongo:/data/db
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  redis:
+    image: redis
+    stdin_open: true
+    volumes:
+    - /data/redis:/data
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+

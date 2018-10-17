@@ -1,0 +1,15 @@
+version: '2'
+services:
+  mongo-express:
+    scale: 1
+    start_on_create: true
+  btcven-api:
+    scale: 1
+    start_on_create: true
+  mongodb:
+    scale: 1
+    start_on_create: true
+  redis:
+    scale: 1
+    start_on_create: true
+

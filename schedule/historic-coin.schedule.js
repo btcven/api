@@ -69,6 +69,9 @@ const SaveDataDB = () => {
     workingEveryhour()
     cron.schedule('0 12,16,19,23 * * *', () => {
         workingEveryhour()
+    }, {
+        scheduled: true,
+        timezone: 'America/Caracas'
     })
 }
 

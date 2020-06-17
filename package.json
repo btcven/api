@@ -14,11 +14,13 @@
   "author": {
     "name": "Yurian Garcia",
     "email": "yurians19@gmail.com"
- },
-   "contributors": [{
+  },
+  "contributors": [
+    {
       "name": "Yurian Garcia",
       "email": "yurians19@gmail.com"
-   }],
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/btcven/api/issues"
@@ -27,6 +29,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
+    "coinmarketcap-api": "^3.1.0",
     "cors": "^2.8.4",
     "debug": "^3.1.0",
     "express": "^4.16.3",
@@ -44,8 +47,10 @@
   "devDependencies": {
     "nodemon": "^1.18.3"
   },
-  "maintainers": [{
-    "name": "Yurian Garcia",
-    "email": "yurians19@gmail.com"
- }]
+  "maintainers": [
+    {
+      "name": "Yurian Garcia",
+      "email": "yurians19@gmail.com"
+    }
+  ]
 }

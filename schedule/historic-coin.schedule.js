@@ -9,7 +9,9 @@ const debug = require('debug')('btcven-api-v2:historic-coin-schedule')
 const workingEveryhour = async () => {
     try {
         let m1 = momentTimeZone().tz('America/Caracas')
+        //run third-party price services
         const coinvalue = await coinValue()
+        //persistent storage of historic coins
         const historicCoinModel = new HistoricCoinModel()
         historicCoinModel.date =  m1.format("YYYY-MM-DD")
         historicCoinModel.BTCVEF = coinvalue.BTCVEF

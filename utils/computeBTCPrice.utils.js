@@ -1,7 +1,7 @@
 const stats = require('stats-lite')
 const jsonfile = require('jsonfile')
 
-
+//Function calculate  BTCVES
 module.exports = (/* ARR_VEF, */ARR_VES) => {
   
     /* let ARR_DEF = 0

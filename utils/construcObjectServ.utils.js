@@ -1,3 +1,4 @@
+// Construct object for response
 module.exports = (btcVefVES,UsdEurGbp,XMR,ETH,LTC,ARS,UsdEur) =>{
     const btcvef = btcVefVES.BTCVEF
     const btcves = btcVefVES.BTCVES

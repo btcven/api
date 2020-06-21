@@ -44,6 +44,7 @@ http://localhost:3000
 - Clone repo -> git clone https://github.com/btcven/api.git
 - Ubiquese en la capeta -> "api"
 - Ejecute el comando -> "npm install"
+- Set la variable de entorno CMC_API_KEY para tener acceso a los price de coinmarketcap-api
 - Ejecute el comando -> "forever start main.js" y "forever stop main.js" para detener
 - Done -> Solicite la https://addresserver:3000/coin desde cualquier navegador
 

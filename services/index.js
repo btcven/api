@@ -16,11 +16,11 @@ const coinValue = async () => {
         const UsdEur = await coindesk('/v1/bpi/currentprice/eur.json')
         const { ARS } = await coindesk('/v1/bpi/currentprice/ars.json')
         // price coinmarketcap calculator service
-        const {data:{BTC:{quote:{XMR:{price:XMR}}}}} = await client.getQuotes({symbol: 'BTC', convert: 'XMR'})
-        const {data:{BTC:{quote:{ETH:{price:ETH}}}}} = await client.getQuotes({symbol: 'BTC', convert: 'ETH'})
-        const {data:{BTC:{quote:{LTC:{price:LTC}}}}} = await client.getQuotes({symbol: 'BTC', convert: 'LTC'})
+        const {data:{BTC:{quote:{XMR:{price:btcxmr}}}}} = await client.getQuotes({symbol: 'BTC', convert: 'XMR'})
+        const {data:{BTC:{quote:{ETH:{price:btceth}}}}} = await client.getQuotes({symbol: 'BTC', convert: 'ETH'})
+        const {data:{BTC:{quote:{LTC:{price:btcltc}}}}} = await client.getQuotes({symbol: 'BTC', convert: 'LTC'})
         // price calculator utils and construct json response
-        return construcObjet(computeBTCPrice(ARR_VES),UsdEurGbp,XMR,ETH,LTC,ARS,UsdEur)
+        return construcObjet(computeBTCPrice(ARR_VES),UsdEurGbp,btcxmr,btceth,btcltc,ARS,UsdEur)
     } catch (error) {
         throw Error(error)
     }

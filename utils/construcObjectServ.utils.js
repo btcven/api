@@ -1,5 +1,5 @@
 // Construct object for response
-module.exports = (btcVefVES,UsdEurGbp,XMR,ETH,LTC,ARS,UsdEur) =>{
+module.exports = (btcVefVES,UsdEurGbp,btcxmr,btceth,btcltc,ARS,UsdEur) =>{
     const btcvef = btcVefVES.BTCVEF
     const btcves = btcVefVES.BTCVES
     const timestamp = Math.round(new Date().getTime()/1000)
@@ -8,9 +8,6 @@ module.exports = (btcVefVES,UsdEurGbp,XMR,ETH,LTC,ARS,UsdEur) =>{
     const btcgbp = UsdEurGbp.GBP.rate_float
     const btceur = UsdEurGbp.EUR.rate_float
     const btcars = ARS.rate_float
-    const { price : btcxmr } = XMR
-    const { price : btceth } = ETH
-    const { price : btcltc } = LTC
     const vefusd = btcvef/btcusd
     const vesusd = btcves/btcusd
     const eurxve = btcvef/btceur

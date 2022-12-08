@@ -32,7 +32,7 @@
     "coinmarketcap-api": "^3.1.0",
     "cors": "^2.8.4",
     "debug": "^3.1.0",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-asyncify": "^1.0.0",
     "json2xls": "^0.1.2",
     "jsonfile": "^4.0.0",
